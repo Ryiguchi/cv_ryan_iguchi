@@ -13,13 +13,15 @@
     />
     <title>Ryan Iguchi &dash; Education</title>
         <script defer src="js/script-universal.js"></script>
+        <script defer src="js/script-education.js"></script>
+
 
   </head>
   <body>
 
-<!----------------------------------------------------------------->
-<!-- HEADER ------------------------------------------------------->
-<!----------------------------------------------------------------->
+    <!----------------------------------------------------------------->
+    <!-- HEADER ------------------------------------------------------->
+    <!----------------------------------------------------------------->
 
     <header class="header">
       <!--  -->
@@ -125,112 +127,109 @@
       </nav>
     </header>
 
-<!---------------------------------------------------------------->
-<!-- MAIN-PAGE --------------------------------------------------->
-<!---------------------------------------------------------------->
+    <!---------------------------------------------------------------->
+    <!-- MAIN-PAGE --------------------------------------------------->
+    <!---------------------------------------------------------------->
 
 
     <div class="container">
       <main class="main education-main">
-        <!------------------------------------------------------>
-        <!-- SKILLS -------------------------------------------->
-        <!------------------------------------------------------>
 
-        <div class="skills-container">
+        <!---------------------------------------------------------------->
+        <!-- SCHOOLS ----------------------------------------------------->
+        <!---------------------------------------------------------------->
 
-          <!-- TITLE -->
 
-          <section class="skills">
-            <div class="skills-heading skills-heading--primary">
-              <ion-icon
-              name="options-outline"
-              class="logo logo-primary"
-              ></ion-icon>
-              <h1 class="skills-title education-h1">Skills</h1>
+        <div class="schools">
+          <div class="tabs-labels-container">
+            <!-- Category tabs -->
+            <div class="category-tabs">
+              <!-- Education tab -->
+              <div class="category-back">
+                <div class="educaton-tab category-tab category-active" data-tab="1">Education</div>
+              </div>
+              <!-- Skills tab -->
+              <div class="category-back tab-back-skills">
+                <div class="skills-tab category-tab" data-tab="5">Skills</div>
+              </div>
+
             </div>
-
-            <!-- SKILLS -->
-
-            <ul class="skills-categories education-ul">
-
-              <!-- LANGUAGES -->
-
-              <li>
-                <div class="skills-heading skills-heading--secondary">
+            <!--  -->
+            <!--Education Tabs -->
+            <!--  -->
+            <div class="tabs-container-ed tabs-container-ed-1">
+              <!-- Chas Tab -->
+              <div class="tab-back">
+                <div class="tab-ed tab-1-ed tab-ed-active" data-num="1">
+                  <div class="tab-pointer"></div>
+                  <p class="tab-ed-name">Chas Academy</p>
+                  <p class="tab-ed-date">2022-Present</p>
+                </div>
+              </div>
+              <!-- OCC Tab -->
+              <div class="tab-back">
+                <div class="tab-ed tab-2-ed " data-num="2">
+                  <div class="tab-pointer"></div>
+                  <p class="tab-ed-name">Ocean County College</p>
+                  <p class="tab-ed-date">1998-2000</p>
+                </div>
+              </div>
+              <!-- PennState tab -->
+              <div class="tab-back">
+                <div class="tab-ed tab-3-ed" data-num="3">
+                  <div class="tab-pointer"></div>
+                  <p class="tab-ed-name">PennState University</p>
+                  <p class="tab-ed-date">1996-1998</p>
+                </div>
+              </div>
+              <!-- Certificates tab -->
+              <div class="tab-back">
+                <div class="tab-ed tab-4-ed" data-num="4">
+                  <div class="tab-pointer"></div>
+                  <p class="tab-ed-name">Certificates</p>
+                  <p class="tab-ed-date">of Completion</p>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <!-- Skills Tabs -->
+            <!--  -->
+            <div class="tabs-container-ed tabs-container-ed-5 hidden">
+              <!-- Languages Tab -->
+              <div class="tab-back">
+                <div class="tab-ed tab-5-ed " data-num="5">
+                  <div class="tab-pointer"></div>
+                  <div class="skills-heading skills-heading--secondary">
                   <ion-icon
                   name="language-outline"
                   class="logo logo-secondary"
                   ></ion-icon>
-                  <h2 class="skills-category education-h2">Languages</h2>
+                  <p class="skills-category p">Languages</p>
                 </div>
-                <ul class="skills-list education-ul">
-                  <li>
-                    <span class="skills-list--skill"> English </span><span class="education-print">English:  Expert</span>
-                    <div class="skills-list-background">
-                      <div class="skills-english skills-bar"></div>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="skills-list--skill"> Swedish </span><span class="education-print">Swedish:  Intermediate</span>
-                    <div class="skills-list-background">
-                    <div class="skills-swedish skills-bar"></div>
-                  </div>
-                </li>
-              </ul>
-            </li>
-
-            <!-- PROGRAMMING -->
-
-            <li>
-              <div class="skills-heading skills-heading--secondary">
+                </div>
+              </div>
+              <!-- Programming Tab -->
+              <div class="tab-back">
+                <div class="tab-ed tab-6-ed " data-num="6">
+                  <div class="tab-pointer"></div>
+                  <div class="skills-heading skills-heading--secondary">
                 <ion-icon
                 name="code-slash-outline"
                 class="logo logo-secondary"
                 ></ion-icon>
-                <h2 class="skills-category education-h2">Programming</h2>
+                <p class="skills-category p">Programming</p>
               </div>
-              <ul class="skills-list education-ul">
-                <li>
-                  <span class="skills-list--skill"> HTML </span><span class="education-print">HTML:  Proficient</span>
-                  <div class="skills-list-background">
-                    <div class="skills-html skills-bar"></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="skills-list--skill">CSS</span><span class="education-print">CSS:  Proficient </span>
-                  <div class="skills-list-background">
-                    <div class="skills-css skills-bar"></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="skills-list--skill">JS</span><span class="education-print">JS:  Intermediate </span>
-                  <div class="skills-list-background">
-                    <div class="skills-javascript skills-bar"></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="skills-list--skill">Java</span><span class="education-print">Java:  Intermediate </span>
-                  <div class="skills-list-background">
-                    <div class="skills-java skills-bar"></div>
-                  </div>
-                </li>
-                <li>
-                  <span class="skills-list--skill">C#</span><span class="education-print">C#:  Intermediate </span>
-                  <div class="skills-list-background">
-                    <div class="skills-c-sharp skills-bar"></div>
-                  </div>
-                </li>
-              </ul>
-            </li>
-
-            <!-- SOFTWARE -->
-
-            <li>
-              <div class="skills-heading skills-heading--secondary">
+                </div>
+              </div>
+              <!-- Software tab -->
+              <div class="tab-back">
+                <div class="tab-ed tab-7-ed" data-num="7">
+                  <div class="tab-pointer"></div>
+                <div class="skills-heading skills-heading--secondary">
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="26"
-                height="26"
+                width="24"
+                height="24"
                 fill="#297a4a"
                 viewBox="0 0 256 256"
                 class="logo logo-secondary logo-software"
@@ -267,9 +266,243 @@
                     class="logo-software"
                   ></line>
                 </svg>
-                <h2 class="skills-category education-h2">Software</h2>
+                <p class="skills-category">Software</p>
               </div>
-              <ul class="skills-list education-ul">
+                </div>
+              </div>
+              <div class="tab-back">
+                <div class="tab-ed tab-7-ed" data-num="7">
+                  <div class="tab-pointer"></div>
+                <div class="skills-heading skills-heading--secondary">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="#297a4a"
+                viewBox="0 0 256 256"
+                class="logo logo-secondary logo-software"
+                >
+                <rect width="256" height="256" fill="none"></rect>
+                <path
+                d="M216,91.3V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.7a7.9,7.9,0,0,1,5.6,2.3l43.4,43.4A7.9,7.9,0,0,1,216,91.3Z"
+                fill="none"
+                stroke="#297a4a"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="24"
+                class="logo-software"
+                ></path>
+                <path
+                d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64"
+                fill="none"
+                stroke="#297a4a"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="24"
+                class="logo-software"
+                ></path>
+                <line
+                x1="152"
+                y1="72"
+                x2="96"
+                y2="72"
+                fill="none"
+                stroke="#297a4a"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                    stroke-width="24"
+                    class="logo-software"
+                  ></line>
+                </svg>
+                <p class="skills-category ">Coming Soon</p>
+              </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!--  -->
+          <!-- Tab Content -->
+          <!--  -->
+          <div class="tab-content-ed tab-content-ed-1 ">
+            <div class="tab-content-header" >
+              <div class="tab-content-header-text">
+                
+                <h2>Chas Academy</h2>
+                <h4>Stockholm, Sweden</h4>
+                <p>Major: Full Stack JavaScript</p>
+              </div>
+              <img
+              src="img/img-education/chas.svg"
+              alt="Chas Academy's Logo"
+                  class="logo-chas logo"
+              />
+            </div>
+            <div class="tab-content-description">
+              Curently enrolled in the full stack JavaScript program. Chas
+              Academy is part of the Chas Visual Management Group, which is
+              one Swedens leading IT-consulting companies.
+            </div>
+            <div class="tab-content-subjects">
+              <h4>Subjects Studied</h4>
+              <ul class="education-ul">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Angular</li>
+              </ul>
+              <ul>
+                <li>Vue</li>
+                <li>Node JS</li>
+                <li>SLQ</li>
+                <li>Agile method</li>
+              </ul>
+
+            </div>
+          </div>
+          <div class="tab-content-ed tab-content-ed-2 hidden">
+            <div class="tab-content-header" >
+              <div class="tab-content-header-text">
+
+                <h2>Ocean County College</h2>
+                <h4>New Jersey, USA</h4>
+                <p>Major: Business</p>
+              </div>
+              <img
+                  src="img/img-education/occ.png"
+                  alt="Ocean County College's Logo"
+                  class="logo-occ logo"
+                />
+            </div>
+            <div class="tab-content-description">
+              Community college in Ocean County, New Jersey. Majored in
+              business in a 2 year associated degree program.
+            </div>
+            <div class="tab-content-subjects">
+              <h4>Subjects Studied</h4>
+              <ul class="education-ul">
+                <li>Accounting</li>
+                <li>Macro Economics</li>
+                <li>Micro Economics</li>
+              </ul>
+              <ul>
+                <li>Business Law</li>
+                <li>Abnormal Psycology</li>
+                <li>Investments</li>
+              </ul>
+
+            </div>
+          </div>
+          <div class="tab-content-ed tab-content-ed-3 hidden">
+            <div class="tab-content-header" >
+              <div class="tab-content-header-text">
+                
+                <h2>Penn State University</h2>
+                <h4>Pennsylvania, USA</h4>
+                <p>Major: Computer Science</p>
+              </div>
+              <img
+                  src="img/img-education/psu.png"
+                  alt="PennState's Logo"
+                  class="logo-psu logo"
+                />
+            </div>
+            <div class="tab-content-description">
+              Initially accepted into the computer engineering program but
+              pivoted to computer science after 1 year. Studied at the
+              Schuylkill campus.
+            </div>
+            <div class="tab-content-subjects">
+              <h4>Subjects Studied</h4>
+              <ul class="education-ul">
+                <li>Programming with C+</li>
+                <li>Calculus</li>
+                <li>Physics</li>
+              </ul>
+              <ul>
+                <li>Psycology</li>
+                <li>Electrical Engineering</li>
+              </ul>
+
+            </div>
+          </div>
+          <div class="tab-content-ed tab-content-ed-4 hidden">
+            <div class="tab-content-header-udemy" >
+              <img
+                  src="img/img-education/udemy.png"
+                  alt="Ocean County College's Logo"
+                  class="logo-udemy logo"
+                />
+              <div class="tab-content-header-text">
+
+                <h4>Build Responsive Real-World Websites with HTML and CSS</h4>
+                <h4>37.5 hours</h4>
+                <p>Certificate of Completion</p>
+              </div>
+              <div class="tab-content-header-text">
+
+                <h4>The Complete JavaScript Course 2022: From Zero to Expert!</h4>
+                <h4>69 hours</h4>
+                <p>Certificate of Completion (Coming Soon!)</p>
+              </div>
+            </div>
+          
+          </div>
+          <div class="tab-content-ed tab-content-skill tab-content-ed-5 hidden ">
+            <ul class="skills-list education-ul skills-list-lang ">
+                  <li>
+                    <span class="skills-list--skill"> English </span><span class="education-print">English:  Expert</span>
+                    <div class="skills-list-background">
+                      <div class="skills-english skills-bar"></div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="skills-list--skill"> Swedish </span><span class="education-print">Swedish:  Intermediate</span>
+                    <div class="skills-list-background">
+                    <div class="skills-swedish skills-bar"></div>
+                  </div>
+                </li>
+              </ul>
+          
+          </div>
+          <div class="tab-content-ed tab-content-skill tab-content-ed-6 hidden">
+            <ul class="skills-list education-ul">
+                <li>
+                  <span class="skills-list--skill"> HTML </span><span class="education-print">HTML:  Proficient</span>
+                  <div class="skills-list-background">
+                    <div class="skills-html skills-bar"></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="skills-list--skill">CSS</span><span class="education-print">CSS:  Proficient </span>
+                  <div class="skills-list-background">
+                    <div class="skills-css skills-bar"></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="skills-list--skill">JS</span><span class="education-print">JS:  Intermediate </span>
+                  <div class="skills-list-background">
+                    <div class="skills-javascript skills-bar"></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="skills-list--skill">Java</span><span class="education-print">Java:  Intermediate </span>
+                  <div class="skills-list-background">
+                    <div class="skills-java skills-bar"></div>
+                  </div>
+                </li>
+                <li>
+                  <span class="skills-list--skill">C#</span><span class="education-print">C#:  Intermediate </span>
+                  <div class="skills-list-background">
+                    <div class="skills-c-sharp skills-bar"></div>
+                  </div>
+                </li>
+              </ul>
+          
+          </div>
+          <div class="tab-content-ed tab-content-skill tab-content-ed-7 hidden">
+            <ul class="skills-list education-ul">
                 <li>
                   <span class="skills-list--skill">VS Code</span><span class="education-print">VS Code:  Proficient </span>
                   <div class="skills-list-background">
@@ -301,173 +534,14 @@
                   </div>
                 </li>
               </ul>
-            </li>
-          </ul>
           
+          </div>
         </div>
-      </section>
-      <!---------------------------------------------------------------->
-      <!-- SCHOOLS ----------------------------------------------------->
-      <!---------------------------------------------------------------->
 
-      <div class="schools">
-        <section class="school-card-container">
-          <article class="school-card">
-            <div class="school-top school-top--heading">
-              <ion-icon
-              name="school-outline"
-              class="logo school-icon"
-              ></ion-icon>
-              <h1 class="schools-heading education-h1">Education</h1>
-            </div>
-          </article>
-        </section>
+
         
-        <!-- CHAS -->
-
-        <section class="school-card-container chas">
-          <input
-          type="checkbox"
-          class="accordion-toggle "
-          />
-          
-          <div class="school-card">
-            <article class="school-top school-top-chas">
-              <span class="attend-date">2022-Present</span>
-              <h2 class="school-name education-h2">Chas Academy</h2>
-                <img
-                  src="img/img-education/chas.svg"
-                  alt="Chas Academy's Logo"
-                  class="logo-chas logo"
-                />
-                <p class="school-description">
-                  Curently enrolled in the full stack JavaScript program. Chas
-                  Academy is part of the Chas Visual Management Group, which is
-                  one Swedens leading IT-consulting companies.
-                </p>
-
-                <ion-icon
-                  name="chevron-down-outline"
-                  class="arrow-down arrow"
-                ></ion-icon>
-                <ion-icon
-                  name="chevron-up-outline"
-                  class="arrow-up arrow"
-                ></ion-icon>
-              </article>
-
-              <!-- ACCORDION - CHAS -->
-
-              <article class="school-accordion ">
-                <h4>Subjects studied</h4>
-                <ul class="education-ul">
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>JavaScript</li>
-                  <li>React</li>
-                  <li>Angular</li>
-                  <li>Vue</li>
-                  <li>Node JS</li>
-                  <li>SLQ</li>
-                  <li>Agile method</li>
-                </ul>
-              </article>
-            </div>
-          </section>
-
-          <!-- OCC -->
-
-          <section class="school-card-container occ">
-            <input
-              type="checkbox"
-              class="accordion-toggle "
-            />
-            <div class="school-card">
-              <article class="school-top">
-                <span class="attend-date">1998-2000</span>
-                <h2 class="school-name education-h2">Ocean County College</h2>
-                <img
-                  src="img/img-education/occ.png"
-                  alt="Ocean County College's Logo"
-                  class="logo-occ logo"
-                />
-                <p class="school-description">
-                  Community college in Ocean County, New Jersey. Majored in
-                  business in a 2 year associated degree program.
-                </p>
-
-                <ion-icon
-                  name="chevron-down-outline"
-                  class="arrow-down arrow"
-                ></ion-icon>
-                <ion-icon
-                  name="chevron-up-outline"
-                  class="arrow-up arrow"
-                ></ion-icon>
-              </article>
-
-              <!-- ACCORDION - OCC -->
-
-              <article class="school-accordion ">
-                <h4>Subjects studied</h4>
-                <ul class="education-ul">
-                  <li>Accounting</li>
-                  <li>Macro Economics</li>
-                  <li>Micro Economics</li>
-                  <li>Business Law</li>
-                  <li>Abnormal Psycology</li>
-                  <li>Investments</li>
-                </ul>
-              </article>
-            </div>
-          </section>
-
-          <!-- PSU -->
-
-          <section class="school-card-container psu">
-            <input
-              type="checkbox"
-              class="accordion-toggle "
-            />
-            <div class="school-card">
-              <article class="school-top">
-                <span class="attend-date">1996-1998</span>
-                <h2 class="school-name education-h2">Penn State University</h2>
-                <img
-                  src="img/img-education/psu.png"
-                  alt="PennState's Logo"
-                  class="logo-psu logo"
-                />
-                <p class="school-description">
-                  Initially accepted into the computer engineering program but
-                  pivoted to computer science after 1 year. Studied at the
-                  Schuylkill campus.
-                </p>
-                <ion-icon
-                  name="chevron-down-outline"
-                  class="arrow-down arrow"
-                ></ion-icon>
-                <ion-icon
-                  name="chevron-up-outline"
-                  class="arrow-up arrow"
-                ></ion-icon>
-              </article>
-
-              <!-- ACCORDION - PSU -->
-
-              <article class="school-accordion ">
-                <h4>Subjects studied</h4>
-                <ul class="education-ul">
-                  <li>Programming with C+</li>
-                  <li>Calculus</li>
-                  <li>Physics</li>
-                  <li>Psycology</li>
-                  <li>Electrical Engineering</li>
-                </ul>
-              </article>
-            </div>
-          </section>
-        </div>
+      </section>
+   
       </main>
     </div>
     <!----------------------------------------------------------->

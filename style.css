@@ -1895,6 +1895,7 @@ body.dark .company {
 
 .education-main {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -1903,46 +1904,196 @@ body.dark .company {
 }
 
 /* ****************************************************** */
+/* EDUCATION - SECTION*********************************** */
+/* ****************************************************** */
+
+.schools {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+
+  width: 80%;
+  margin: 5rem auto;
+}
+
+.tabs-labels-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 80%;
+}
+
+.tabs-container-ed {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0.5rem 0.3rem 0.3rem 0.3rem;
+  background-color: var(--green);
+  height: 29rem;
+}
+
+.tab-back {
+  background-color: #cc9a66;
+  height: 100%;
+}
+
+.tab-ed {
+  z-index: 1000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1rem 2rem;
+}
+
+.tab-pointer {
+  z-index: -100;
+  display: none;
+  position: absolute;
+  right: 0;
+  transform: translateX(calc(50% + 0.2rem)) rotate(45deg);
+  aspect-ratio: 1 /1;
+  height: 45%;
+  background-color: #63e095;
+  border-right: 0.3rem solid #297a4a;
+  border-top: 0.3rem solid #297a4a;
+}
+
+.tab-content-ed {
+  background-color: #fff;
+
+  width: 70%;
+  height: 50rem;
+  padding: 3rem 3rem 3rem 5rem;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-content-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.tab-content-header-udemy {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tab-content-description {
+  margin-bottom: 3rem;
+}
+
+.tab-content-subjects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.tab-content-subjects h4 {
+  grid-column: 1 / -1;
+  margin-bottom: 1.6rem;
+}
+
+.tab-content-subjects ul {
+  margin-left: 1.6rem;
+}
+
+/* Category tabs */
+
+.category-tabs {
+  display: flex;
+  gap: 1rem;
+}
+
+.category-back {
+  background-color: #cc9a66;
+  width: 50%;
+}
+
+.category-tab {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.493);
+  width: 100%;
+  padding: 1rem 0;
+}
+
+/* Active tabs */
+.tab-ed-active {
+  background-color: #63e095;
+  color: #333;
+}
+
+.category-active {
+  background-color: #297a4a;
+  color: #fff;
+}
+
+.tab-content-active {
+  display: initial;
+}
+
+.tab-ed-active .tab-pointer {
+  display: initial;
+}
+
+/* LOGOS************************************************* */
+
+.logo-chas {
+  grid-row: 2;
+  justify-self: center;
+  height: 10rem;
+  width: 10rem;
+
+  margin-right: 1.2rem;
+}
+
+.logo-occ {
+  grid-row: 2;
+  justify-self: center;
+  filter: brightness(0);
+  opacity: 60%;
+
+  height: 10rem;
+  width: 10rem;
+
+  margin-right: 1rem;
+}
+
+.logo-psu {
+  grid-row: 2;
+  justify-self: center;
+  opacity: 70%;
+
+  height: 10rem;
+  width: 10rem;
+  margin-right: 3.6rem;
+}
+
+.logo-udemy {
+  width: 12rem;
+}
+
+/* ****************************************************** */
 /* SKILLS - SECTION************************************** */
 /* ****************************************************** */
 
-.skills-container {
-  border-right: 5px solid var(--green);
-  width: 40%;
-}
+/* Skills tabs */
 
-.skills {
-  align-self: start;
-  margin: 4.8rem 2rem;
+.skills-category {
+  font-size: 1.6rem;
+  color: #555;
 }
 
 .skills-heading {
   display: flex;
   align-items: center;
-
-  color: var(--green);
-}
-
-.skills-heading--primary {
-  display: grid;
-  grid-template-columns: 30% 65%;
-  gap: 1.6rem;
-  background-color: #e3cfba;
-  border: 1px solid var(--green);
-  box-shadow: -1.5rem 1.5rem 1.5rem rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  padding: 2.4rem;
-  margin-bottom: 2rem;
-}
-
-.logo {
-  --ionicon-stroke-width: 5rem;
-  color: var(--green);
-}
-
-.logo-primary {
-  font-size: 3rem;
-  justify-self: center;
 }
 
 .skills-categories {
@@ -1951,37 +2102,53 @@ body.dark .company {
   gap: 2rem;
 }
 
-.skills-categories > li {
-  list-style-type: none;
-  background-color: #e3cfba;
-  border: 1px solid var(--green);
-  box-shadow: -1.5rem 1.5rem 1.5rem rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  padding: 2rem;
-}
-
 .skills-heading--secondary {
   gap: 1rem;
-  margin-bottom: 1.6rem;
+}
+
+.logo {
+  --ionicon-stroke-width: 5rem;
+  color: #555;
 }
 
 .logo-secondary {
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
-.skills-category {
-  color: var(--green);
+.logo-software {
+  stroke: #555;
+}
+
+/* Skills content */
+
+.tab-content-skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .skills-list {
-  gap: 0.4rem;
+  width: 75%;
+  gap: 2rem;
+  padding: 3rem;
+  /* border: 1px solid #63e095; */
 }
+
+.skills-list-lang {
+  margin-bottom: 15rem;
+}
+/* 
+.skills-list-prog {
+  margin-top: 8rem;
+} */
 
 .skills-list li {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+/*  */
 
 /* SKILLS BAR******************************************** */
 
@@ -2155,206 +2322,6 @@ body.dark .company {
   width: 75%;
 
   animation: bar75 3s ease-in infinite;
-}
-
-/* ****************************************************** */
-/* EDUCATION - SECTION*********************************** */
-/* ****************************************************** */
-
-.schools {
-  width: 55%;
-  margin: 5rem auto;
-}
-
-.school-card-container {
-  position: relative;
-
-  margin-bottom: 2rem;
-}
-
-.school-icon {
-  justify-self: center;
-
-  width: 3.6rem;
-  height: 3.6rem;
-
-  margin-right: 2.4rem;
-}
-
-.schools-heading {
-  grid-column: 2 / 4;
-  grid-row: 1;
-  justify-self: left;
-}
-
-.school-top {
-  position: relative;
-
-  display: grid;
-  grid-template-columns: 30% 65%;
-  justify-content: center;
-  align-items: center;
-  gap: 1.6rem;
-  row-gap: 1.6rem;
-
-  background-color: #e3cfba;
-  box-shadow: -1.5rem 1.5rem 1.5rem rgba(0, 0, 0, 0.15);
-  border: 2px solid #aaa;
-
-  border-radius: 6px;
-
-  padding: 2rem;
-}
-
-.attend-date {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #555;
-}
-
-.school-name {
-  grid-column: 2;
-  font-weight: 600;
-}
-
-.school-description {
-  grid-column: 2;
-}
-
-.school-accordion {
-  display: none;
-
-  background-color: #e3cfba;
-
-  padding: 1.6rem 4.8rem 4.8rem 30%;
-  margin-bottom: 1.6rem;
-}
-
-.school-accordion h4 {
-  text-transform: uppercase;
-  margin: 0 0 1rem 1.6rem;
-  color: var(--green);
-}
-
-.school-accordion .education-ul {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  list-style: circle;
-
-  margin-left: 2rem;
-}
-
-.school-accordion li {
-  margin-left: 2rem;
-}
-
-.arrow-down {
-  position: absolute;
-  top: 3.6rem;
-  right: 2.5rem;
-  transform: translateY(-50%);
-
-  color: #555;
-
-  height: 2.4rem;
-  width: 2.4rem;
-}
-
-.arrow-up {
-  display: none;
-
-  position: absolute;
-  top: 3.6rem;
-  right: 2.5rem;
-  transform: translateY(-50%);
-
-  color: var(--green);
-
-  height: 2.4rem;
-  width: 2.4rem;
-}
-
-/* LOGOS************************************************* */
-
-.logo-chas {
-  grid-row: 2;
-  justify-self: center;
-  height: 10rem;
-  width: 10rem;
-
-  margin-right: 1.2rem;
-}
-
-.logo-occ {
-  grid-row: 2;
-  justify-self: center;
-  filter: brightness(0);
-  opacity: 60%;
-
-  height: 10rem;
-  width: 10rem;
-
-  margin-right: 1rem;
-}
-
-.logo-psu {
-  grid-row: 2;
-  justify-self: center;
-  opacity: 70%;
-
-  height: 10rem;
-  width: 10rem;
-  margin-right: 3.6rem;
-}
-/* ACCORDION********************************************* */
-
-.accordion-toggle {
-  position: absolute;
-  top: 3.8rem;
-  right: 2rem;
-  z-index: 1000;
-  transform: translateY(-50%);
-
-  width: 4rem;
-  height: 4rem;
-
-  appearance: none;
-  cursor: pointer;
-}
-
-.accordion-toggle:checked ~ .school-card .school-accordion,
-.accordion-toggle:checked ~ .school-card .arrow-up {
-  display: block;
-}
-
-.accordion-toggle:checked ~ .school-card .school-accordion {
-  border-radius: 0 0 6px 6px;
-  border: 2px solid var(--neon);
-  border-top: none;
-}
-
-.accordion-toggle:checked ~ .school-card {
-  box-shadow: -1.5rem 1.5rem 1.5rem rgba(0, 0, 0, 0.15);
-}
-
-.accordion-toggle:checked ~ .school-card .school-top {
-  border: 2px solid var(--neon);
-  border-bottom: none;
-
-  box-shadow: none;
-
-  border-radius: 6px 6px 0 0;
-}
-
-.accordion-toggle:checked ~ .school-card .education-h2,
-.accordion-toggle:checked ~ .school-card span {
-  color: var(--green);
-}
-
-.accordion-toggle:checked ~ .school-card .arrow-down {
-  display: none;
 }
 
 /* ****************************************************** */
