@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ryan Iguchi &dash; Projects</title>
+  </head>
+  <body class="dark">
+    <!-- DARK-MODE CHECKBOX -->
+
+    <input
+      type="checkbox"
+      class="dark-mode-checkbox dark-mode-checkbox-projects"
+    />
+
+    <!----------------------------------------------------------------->
+    <!-- HEADER ------------------------------------------------------->
+    <!----------------------------------------------------------------->
+
+    <header class="header">
+      <section class="header-left">
+        <div class="header-mobile-name">
+          <span class="header-square"></span>
+          <h3 class="header-name">Ryan Iguchi</h3>
+        </div>
+        <span class="header-title slash">/ </span>
+        <h4 class="header-title">Full Stack JavaScript Developer</h4>
+      </section>
+
+      <!-- HEADER-NAV -------------------------------------------------->
+
+      <nav class="header-nav" aria-label="Site navigation">
+        <ul class="header-nav--list">
+          <li>
+            <a href="index.html" id="about" class="header-nav--link"
+              >about me</a
+            >
+          </li>
+          <li>
+            <a href="resume.html" id="resume" class="header-nav--link"
+              >resume</a
+            >
+          </li>
+          <li>
+            <a href="education.html" id="education" class="header-nav--link"
+              >education</a
+            >
+          </li>
+          <li>
+            <a href="#" id="portfolio" class="header-nav--link current-page"
+              >portfolio</a
+            >
+          </li>
+          <li>
+            <a href="contact.html" id="contact" class="header-nav--link"
+              >contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- MOBILE-NAV ------------------------------------------->
+
+      <input type="checkbox" class="mobile-nav--checkbox" />
+      <ion-icon name="menu-outline" class="mobile-nav--icon"></ion-icon>
+      <nav class="mobile-nav" aria-label="Site navigation">
+        <ul class="mobil-nav--list">
+          <li>
+            <a href="index.html" id="about" class="mobile-nav--link"
+              >about me</a
+            >
+          </li>
+          <li>
+            <a href="resume.html" id="resume" class="mobile-nav--link"
+              >resume</a
+            >
+          </li>
+          <li>
+            <a href="education.html" id="education" class="mobile-nav--link"
+              >education</a
+            >
+          </li>
+          <li>
+            <a href="#" id="portfolio" class="mobile-nav--link current-page"
+              >portfolio</a
+            >
+          </li>
+          <li>
+            <a href="contact.html" id="contact" class="mobile-nav--link"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!---------------------------------------------------------------->
+    <!-- MAIN-PAGE --------------------------------------------------->
+    <!---------------------------------------------------------------->
+
+    <div class="container">
+      <main class="main">
+        <div class="carousel">
+          <!-- CHECKBOXES TO NAVIGATE CAROUSEL -->
+
+          <input type="checkbox" class="checkbox-left" />
+          <input type="checkbox" class="checkbox-right" />
+
+          <!-- PROJECT IMAGES FOR THE LEFT SIDE -->
+
+          <section class="slide-left">
+            <img
+              src="img/img-projects/cv.webp"
+              alt="Left side carousel image"
+              class="cv-slide-img-left"
+            />
+            <img
+              src="img/img-projects/bj.webp"
+              alt="Left side carousel image"
+              class="bj-slide-img-left"
+            />
+            <img
+              src="img/img-projects/of.webp"
+              alt="Left side carousel image"
+              class="of-slide-img-left"
+            />
+          </section>
+
+          <!-- THE MAIN SIDE ------------------------------>
+
+          <section class="slide-front">
+            <!-- navigation arrows -->
+
+            <ion-icon
+              name="chevron-back-outline"
+              class="arrow-left-icon"
+            ></ion-icon>
+            <ion-icon
+              name="chevron-forward-outline"
+              class="arrow-right-icon"
+            ></ion-icon>
+
+            <!-- CV PROJECT --------------------------------->
+
+            <article class="project project-cv">
+              <!-- image -->
+
+              <div class="img-box">
+                <img
+                  src="img/img-projects/monitor.webp"
+                  alt="Picture of a monitor"
+                  class="monitor-img"
+                />
+                <img
+                  src="img/img-projects/projects-cv-img.webp"
+                  alt="Picture of my CV website"
+                  class="project-img cv-img"
+                />
+              </div>
+              <div class="project-card-text-box">
+                <!-- text -->
+
+                <h1 class="projects-h1">My Personal CV-Website</h1>
+                <p class="project-card-description">
+                  My online CV, showcasing some of my web design skills. It's
+                  what you're looking at right now!
+                </p>
+                <button class="more-btn btn">Learn More</button>
+              </div>
+            </article>
+
+            <!-- BLACK JACK PROJECT ------------------------------------>
+
+            <article class="project project-bj">
+              <!-- image -->
+
+              <div class="img-box">
+                <img
+                  src="img/img-projects/monitor.webp"
+                  alt="Picture of a monitor"
+                  class="monitor-img"
+                />
+                <img
+                  src="img/img-projects/projects-bj.webp"
+                  alt="Picture of my BlackJack game"
+                  class="project-img cv-img"
+                />
+              </div>
+              <div class="project-card-text-box">
+                <!-- text -->
+
+                <h1 class="projects-h1">Single-player Black Jack</h1>
+                <p class="project-card-description">
+                  My first game! Play against the dealer and see if you can win
+                  big!!
+                </p>
+                <button class="more-btn btn">Learn More</button>
+              </div>
+            </article>
+
+            <!-- OMNIFOOD PROJECT ------------------------------------------>
+
+            <article class="project project-of">
+              <!-- image -->
+
+              <div class="img-box">
+                <img
+                  src="img/img-projects/monitor.webp"
+                  alt="Picture of a monitor"
+                  class="monitor-img"
+                />
+                <img
+                  src="img/img-projects/projects-of.webp"
+                  alt="Picture of my Omnifood website"
+                  class="project-img of-img"
+                />
+              </div>
+              <div class="project-card-text-box">
+                <!-- text -->
+
+                <h1 class="projects-h1">Food Delivery Website Concept</h1>
+                <p class="project-card-description">
+                  My first website which helped me develop essential wed
+                  development skills.
+                </p>
+                <button class="more-btn btn">Learn More</button>
+              </div>
+            </article>
+
+            <!-- MORE MODAL --------------------------------------------->
+
+            <input type="checkbox" class="checkbox-more" />
+            <aside class="more-modal modal-of">
+              <ion-icon name="close-outline" class="close-icon"></ion-icon>
+              <div class="modal-content-of">
+                <img
+                  src="img/img-projects/of-img-1.webp"
+                  alt="Omnifood Features Section"
+                  class="modal-img of-img-1"
+                />
+                <article class="modal-list">
+                  <ul>
+                    <li>
+                      <ion-icon name="expand-outline"></ion-icon>
+                      <span>Responsive</span>
+                    </li>
+                    <li>
+                      <ion-icon name="bug-outline"></ion-icon>
+                      <span>Bug free!</span>
+                    </li>
+                    <li>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <span>Fast and optimized</span>
+                    </li>
+                    <li>
+                      <ion-icon name="leaf-outline"></ion-icon>
+                      <span>Naturally organic</span>
+                    </li>
+                  </ul>
+                </article>
+                <img
+                  src="img/img-projects/of-img-2.webp"
+                  alt="Omnifood Gallery Section"
+                  class="modal-img of-img-2"
+                />
+                <article class="modal-testimonial">
+                  <img
+                    src="img/img-projects/tamela.webp"
+                    alt="Tamela Hedström"
+                    class="tamela-img"
+                  />
+                  <blockquote class="tamela-quote">
+                    <em> "A fresh and modern site that makes you hungry!" </em>
+                  </blockquote>
+                  <span class="tamela-name">&dash; Tamela Hedström</span>
+                </article>
+                <article class="modal-lorem">
+                  <h1 class="lorem-title projects-h1">
+                    Lorem ipsum dolor, sit amet
+                  </h1>
+                  <p class="lorem-text">
+                    adipisicing elit. Veritatis, explicabo blanditiis. Esse ab
+                    quod rerum non
+                  </p>
+                </article>
+                <img
+                  src="img/img-projects/of-img-3.webp"
+                  alt="Omnifood Cards Section"
+                  class="modal-img of-img-3"
+                />
+
+                <article class="modal-cta">
+                  <h2 class="modal-cta-title">Visit Omnifood or contact me!</h2>
+                  <div class="cta-btns">
+                    <a
+                      href="https://omnifood-ryani.netlify.app"
+                      class="of-btn btn"
+                      target="_blank"
+                      >Omnifood</a
+                    >
+
+                    <a href="contact.html" class="contact-btn btn"
+                      >Contact me</a
+                    >
+                  </div>
+                </article>
+                <img
+                  src="img/img-projects/of-img-4.webp"
+                  alt="Omnifood Call-to-Action Section"
+                  class="modal-img of-img-4"
+                />
+              </div>
+            </aside>
+          </section>
+
+          <!-- PROJECT IMAGES FOR THE RIGHT SIDE ----------------------------->
+
+          <section class="slide-right">
+            <img
+              src="img/img-projects/cv.webp"
+              alt="Right side carousel image"
+              class="cv-slide-img-right"
+            />
+            <img
+              src="img/img-projects/bj.webp"
+              alt="Right side carousel image"
+              class="bj-slide-img-right"
+            />
+            <img
+              src="img/img-projects/of.webp"
+              alt="Right side carousel image"
+              class="of-slide-img-right"
+            />
+          </section>
+
+          <!-- PAGINATION ------------------------------------------------->
+
+          <div class="pagination">
+            <ul>
+              <li class="p-1">1</li>
+              <li class="p-2">2</li>
+              <li class="p-3">3</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!----------------------------------------------------------->
+    <!-- FOOTER ------------------------------------------------->
+    <!----------------------------------------------------------->
+
+    <footer>
+      <section class="left-footer">&copy; 2022 by Ryan Iguchi.</section>
+      <section class="right-footer">
+        <article class="right-footer--article right-footer--call">
+          <span class="right-footer--title">Call</span>
+          <a class="right-footer--link" href="tel:070 459 1126">070 459 1126</a>
+        </article>
+        <article class="right-footer--article right-footer--write">
+          <span class="right-footer--title">Write</span>
+          <a class="right-footer--link" href="mailto:ryan.iguchi1@gmail.com"
+            >ryan.iguchi1@gmail.com</a
+          >
+        </article>
+        <article class="right-footer--article right-footer--follow">
+          <span class="right-footer--title">Follow</span>
+          <nav class="right-footer--social-nav" aria-label="Social media links">
+            <a href="" class="right-footer--social-link">
+              <ion-icon name="logo-facebook" class="social-icon"></ion-icon>
+            </a>
+            <a href="" class="right-footer--social-link">
+              <ion-icon name="logo-twitter" class="social-icon"></ion-icon>
+            </a>
+            <a href="" class="right-footer--social-link">
+              <ion-icon name="logo-linkedin" class="social-icon"></ion-icon>
+            </a>
+            <a href="" class="right-footer--social-link">
+              <ion-icon name="logo-instagram" class="social-icon"></ion-icon>
+            </a>
+          </nav>
+        </article>
+      </section>
+    </footer>
+
+    <!----------------------------------------------------------->
+    <!-- END OF PAGE -------------------------------------------->
+    <!----------------------------------------------------------->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
