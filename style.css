@@ -2808,9 +2808,10 @@ body.dark .download-btn:hover {
 .project-card-text-box {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  gap: 10%;
+  height: 100%;
 }
 
 .project-mobile .project-card-text-box {
@@ -2826,16 +2827,14 @@ body.dark .download-btn:hover {
 .projects-h1 {
   color: #000;
   font-size: 3rem;
-
-  margin-top: 35%;
 }
 
 .project-card-description {
+  text-align: center;
   font-size: 2rem;
   line-height: 1.4;
   color: #000;
-
-  margin-bottom: 60%;
+  margin-bottom: 25%;
 }
 
 /* Arrows */
@@ -2904,11 +2903,6 @@ body.dark .download-btn:hover {
 /* LEARN MORE MODAL ************************************* */
 
 .more-btn {
-  position: absolute;
-  z-index: 1000;
-  bottom: 20%;
-  left: calc(15% + 20rem);
-  transform: translateX(-50%);
   font-size: 1.2rem;
 
   color: #000;

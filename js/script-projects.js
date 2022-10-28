@@ -7,7 +7,7 @@
 // --arrows / buttons
 const leftArrow = document.querySelector(".arrow-left-icon");
 const rightArrow = document.querySelector(".arrow-right-icon");
-const learnMoreBtn = document.querySelector(".more-btn");
+const learnMoreBtns = document.querySelectorAll(".more-btn");
 const closeIcons = document.querySelectorAll(".close-icon");
 
 // --elements
@@ -78,7 +78,6 @@ const projectSlider = function () {
     fullScreen();
     curSlide === maxSlide ? (curSlide = 1) : curSlide++;
     goToSlide(curSlide);
-    adjustButton(curSlide);
     closeModals();
     changePageNum(curSlide);
   };
@@ -87,28 +86,12 @@ const projectSlider = function () {
     fullScreen();
     curSlide === 1 ? (curSlide = maxSlide) : curSlide--;
     goToSlide(curSlide);
-    adjustButton(curSlide);
     closeModals();
     changePageNum(curSlide);
   };
 
   const fullScreen = function () {
     slider.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const adjustButton = function (num) {
-    fadeIn();
-    document.querySelector(`.slide-${num}`).dataset.type === "desktop"
-      ? (learnMoreBtn.style.left = "calc(10% + 20rem)")
-      : (learnMoreBtn.style.left = "calc(15% + 20rem)");
-  };
-
-  const fadeIn = function () {
-    learnMoreBtn.style.display = "none";
-
-    setInterval(() => {
-      learnMoreBtn.style.display = "flex";
-    }, 1000);
   };
 
   const closeModals = function () {
@@ -145,11 +128,12 @@ projectSlider();
 
 // MODAL POP-UP
 
-learnMoreBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  modalOpen = true;
-
-  document.querySelector(`.modal-${curSlide}`).style.top = "50%";
+learnMoreBtns.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    modalOpen = true;
+    document.querySelector(`.modal-${curSlide}`).style.top = "50%";
+  });
 });
 
 closeIcons.forEach((icon) => {
@@ -162,8 +146,7 @@ closeIcons.forEach((icon) => {
 
 slides.forEach((el) => {
   el.addEventListener("click", function (e) {
-    if (!modalOpen) return;
-    console.log(modalOpen, curSlide);
+    if (!modalOpen || e.target.classList.contains("more-btn")) return;
     document.querySelector(`.modal-${curSlide}`).style.top = "-20rem";
   });
 });
