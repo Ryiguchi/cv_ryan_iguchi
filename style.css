@@ -2806,6 +2806,7 @@ body.dark .download-btn:hover {
 }
 
 .project-card-text-box {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2830,7 +2831,6 @@ body.dark .download-btn:hover {
 }
 
 .project-card-description {
-  text-align: center;
   font-size: 2rem;
   line-height: 1.4;
   color: #000;
