@@ -13,6 +13,7 @@
     />
     <title>Ryan Iguchi &dash; Projects</title>
     <script defer src="js/script-universal.js"></script>
+    <script defer src="js/script-projects.js"></script>
   </head>
   <body>
     <!----------------------------------------------------------------->
@@ -133,249 +134,510 @@
     <!-- MAIN-PAGE --------------------------------------------------->
     <!---------------------------------------------------------------->
 
-    <div class="container">
+    <div class="container container-projects">
       <main class="main">
-        <div class="carousel">
-          <!-- CHECKBOXES TO NAVIGATE CAROUSEL -->
+        <div class="slider">
+          <!-- navigation arrows -->
 
-          <input type="checkbox" class="checkbox-left" />
-          <input type="checkbox" class="checkbox-right" />
+          <ion-icon
+            name="chevron-back-outline"
+            class="arrow-left-icon"
+          ></ion-icon>
+          <ion-icon
+            name="chevron-forward-outline"
+            class="arrow-right-icon"
+          ></ion-icon>
 
-          <!-- PROJECT IMAGES FOR THE LEFT SIDE -->
+          <!-- learn more button -->
 
-          <section class="slide-left">
-            <img
-              src="img/img-projects/cv.webp"
-              alt="Left side carousel image"
-              class="cv-slide-img-left"
-            />
-            <img
-              src="img/img-projects/bj.webp"
-              alt="Left side carousel image"
-              class="bj-slide-img-left"
-            />
-            <img
-              src="img/img-projects/of.webp"
-              alt="Left side carousel image"
-              class="of-slide-img-left"
-            />
-          </section>
+          <button class="more-btn btn more-mine" data-project="mine">
+            Learn More
+          </button>
 
-          <!-- THE MAIN SIDE ------------------------------>
+          <!------------ SLIDES ----------------->
 
-          <section class="slide-front">
-            <!-- navigation arrows -->
+          <!-- MINESWEEPER GAME ----- -->
 
-            <ion-icon
-              name="chevron-back-outline"
-              class="arrow-left-icon"
-            ></ion-icon>
-            <ion-icon
-              name="chevron-forward-outline"
-              class="arrow-right-icon"
-            ></ion-icon>
-
-            <!-- CV PROJECT --------------------------------->
-
-            <article class="project project-cv">
-              <!-- image -->
-
-              <div class="img-box">
-                <img
-                  src="img/img-projects/monitor.webp"
-                  alt="Picture of a monitor"
-                  class="monitor-img"
-                />
-                <img
-                  src="img/img-projects/projects-cv-img.webp"
-                  alt="Picture of my CV website"
-                  class="project-img cv-img"
-                />
+          <article
+            class="slide-1 project project-mobile project-mine"
+            data-type="mobile"
+          >
+            <div class="project-card-text-box">
+              <!-- text -->
+              <h1 class="projects-h1">Classic Minesweeper</h1>
+              <p class="project-card-description">
+                Take a nostalgic trip back to the 90's with Minesweeper! Soon to
+                be optimzed for desktop!
+              </p>
+            </div>
+            <!-- image -->
+            <div class="img-box img-box-mobile">
+              <img
+                src="img/img-projects/mine.png"
+                alt="Picture of my Minesweeper game"
+                class="project-img mine-img"
+              />
+            </div>
+          </article>
+          <aside class="more-modal modal-1">
+            <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            <div class="modal-content">
+              <h2>Minesweeper</h2>
+              <div class="modal-type-container">
+                <h4>Categogry: &nbsp &nbsp Game</h4>
+                <a
+                  href="https://ryiguchi.github.io/guess-a-number-game/mine.html"
+                  class="btn btn-modal btn-mine"
+                  target="_blank"
+                  >Play</a
+                >
               </div>
-              <div class="project-card-text-box">
-                <!-- text -->
-
-                <h1 class="projects-h1">My Personal CV-Website</h1>
-                <p class="project-card-description">
-                  My online CV, showcasing some of my web design skills. It's
-                  what you're looking at right now!
-                </p>
-                <button class="more-btn btn">Learn More</button>
+              <div class="modal-tech-container">
+                <h4>Tech used: &nbsp &nbsp HTML, CSS, JavaScript</h4>
+                <a
+                  href="https://github.com/Ryiguchi/guess-a-number-game"
+                  class="btn btn-modal btn-mine"
+                  target="_blank"
+                  >GitHub</a
+                >
               </div>
-            </article>
+              <p>
+                This is a mobile first school project that has not yet been
+                optimized for different screen sizes. There are only 2
+                difficulty levels right now but I would like to eventually add a
+                "hard" level for larger screen sizes.
+              </p>
+            </div>
+          </aside>
 
-            <!-- BLACK JACK PROJECT ------------------------------------>
+          <!-- PIG GAME ------------- -->
 
-            <article class="project project-bj">
-              <!-- image -->
-
-              <div class="img-box">
-                <img
-                  src="img/img-projects/monitor.webp"
-                  alt="Picture of a monitor"
-                  class="monitor-img"
-                />
-                <img
-                  src="img/img-projects/projects-bj.webp"
-                  alt="Picture of my BlackJack game"
-                  class="project-img cv-img"
-                />
+          <article
+            class="slide-2 project project-mobile project-pig hidden"
+            data-type="mobile"
+          >
+            <div class="project-card-text-box">
+              <!-- text -->
+              <h1 class="projects-h1">Pig Game</h1>
+              <p class="project-card-description">
+                Be too greedy and you'll lose! This 2 player game is a game of
+                chance and greed!
+              </p>
+            </div>
+            <!-- image -->
+            <div class="img-box img-box-mobile">
+              <img
+                src="img/img-projects/pig.png"
+                alt="Picture of my Pig game"
+                class="project-img cv-img"
+              />
+            </div>
+          </article>
+          <aside class="more-modal modal-2">
+            <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            <div class="modal-content">
+              <h2>Pig Game</h2>
+              <div class="modal-type-container">
+                <h4>Category: &nbsp &nbsp Game</h4>
+                <a
+                  href="https://ryiguchi.github.io/guess-a-number-game/pig.html"
+                  class="btn btn-modal btn-pig"
+                  target="_blank"
+                  >Play</a
+                >
               </div>
-              <div class="project-card-text-box">
-                <!-- text -->
-
-                <h1 class="projects-h1">Single-player Black Jack</h1>
-                <p class="project-card-description">
-                  My first game! Play against the dealer and see if you can win
-                  big!!
-                </p>
-                <button class="more-btn btn">Learn More</button>
+              <div class="modal-tech-container">
+                <h4>Tech used: &nbsp &nbsp HTML, CSS, JavaScript</h4>
+                <a
+                  href="https://github.com/Ryiguchi/guess-a-number-game"
+                  class="btn btn-modal btn-pig"
+                  target="_blank"
+                  >GitHub</a
+                >
               </div>
-            </article>
+              <p>
+                This is a mobile first school project that has not yet been
+                optimized for different screen sizes. I had previously built
+                this game with Jonas Schmedtmann for an Udemy course so I want
+                to give him some credit for some of the logic and even design.
+              </p>
+            </div>
+          </aside>
 
-            <!-- OMNIFOOD PROJECT ------------------------------------------>
+          <!-- MEMORY GAME --------- -->
 
-            <article class="project project-of">
-              <!-- image -->
-
-              <div class="img-box">
-                <img
-                  src="img/img-projects/monitor.webp"
-                  alt="Picture of a monitor"
-                  class="monitor-img"
-                />
-                <img
-                  src="img/img-projects/projects-of.webp"
-                  alt="Picture of my Omnifood website"
-                  class="project-img of-img"
-                />
+          <article
+            class="slide-3 project project-mobile project-memory hidden"
+            data-type="mobile"
+          >
+            <div class="project-card-text-box">
+              <!-- text -->
+              <h1 class="projects-h1">Classic Memory</h1>
+              <p class="project-card-description">
+                Play this game with a friend too see who has a better memory!
+                More tile choices coming for kids!
+              </p>
+            </div>
+            <!-- image -->
+            <div class="img-box img-box-mobile">
+              <img
+                src="img/img-projects/memory.png"
+                alt="Picture of my Memory game"
+                class="project-img cv-img"
+              />
+            </div>
+          </article>
+          <aside class="more-modal modal-3">
+            <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            <div class="modal-content">
+              <h2>Memory</h2>
+              <div class="modal-type-container">
+                <h4>Category: &nbsp &nbsp Game</h4>
+                <a
+                  href="https://ryiguchi.github.io/guess-a-number-game/memory.html"
+                  class="btn btn-modal btn-memory"
+                  target="_blank"
+                  >Play</a
+                >
               </div>
-              <div class="project-card-text-box">
-                <!-- text -->
-
-                <h1 class="projects-h1">Food Delivery Website Concept</h1>
-                <p class="project-card-description">
-                  My first website which helped me develop essential wed
-                  development skills.
-                </p>
-                <button class="more-btn btn">Learn More</button>
+              <div class="modal-tech-container">
+                <h4>Tech used: &nbsp &nbsp HTML, CSS, JavaScript</h4>
+                <a
+                  href="https://github.com/Ryiguchi/guess-a-number-game"
+                  class="btn btn-modal btn-memory"
+                  target="_blank"
+                  >GitHub</a
+                >
               </div>
-            </article>
+              <p>
+                This is a mobile first school project that has not yet been
+                optimized for different screen sizes. I would like to eventually
+                add a "hard" level and also choices of tiles for kids so my
+                children can play!
+              </p>
+            </div>
+          </aside>
 
-            <!-- MORE MODAL --------------------------------------------->
+          <!-- ROCK, PAPPER, SCISSORS  -->
 
-            <input type="checkbox" class="checkbox-more" />
-            <aside class="more-modal modal-of">
-              <ion-icon name="close-outline" class="close-icon"></ion-icon>
-              <div class="modal-content-of">
-                <img
-                  src="img/img-projects/of-img-1.webp"
-                  alt="Omnifood Features Section"
-                  class="modal-img of-img-1"
-                />
-                <article class="modal-list">
-                  <ul>
-                    <li>
-                      <ion-icon name="expand-outline"></ion-icon>
-                      <span>Responsive</span>
-                    </li>
-                    <li>
-                      <ion-icon name="bug-outline"></ion-icon>
-                      <span>Bug free!</span>
-                    </li>
-                    <li>
-                      <ion-icon name="time-outline"></ion-icon>
-                      <span>Fast and optimized</span>
-                    </li>
-                    <li>
-                      <ion-icon name="leaf-outline"></ion-icon>
-                      <span>Naturally organic</span>
-                    </li>
-                  </ul>
-                </article>
-                <img
-                  src="img/img-projects/of-img-2.webp"
-                  alt="Omnifood Gallery Section"
-                  class="modal-img of-img-2"
-                />
-                <article class="modal-testimonial">
-                  <img
-                    src="img/img-projects/tamela.webp"
-                    alt="Tamela Hedström"
-                    class="tamela-img"
-                  />
-                  <blockquote class="tamela-quote">
-                    <em> "A fresh and modern site that makes you hungry!" </em>
-                  </blockquote>
-                  <span class="tamela-name">&dash; Tamela Hedström</span>
-                </article>
-                <article class="modal-lorem">
-                  <h1 class="lorem-title projects-h1">
-                    Lorem ipsum dolor, sit amet
-                  </h1>
-                  <p class="lorem-text">
-                    adipisicing elit. Veritatis, explicabo blanditiis. Esse ab
-                    quod rerum non
-                  </p>
-                </article>
-                <img
-                  src="img/img-projects/of-img-3.webp"
-                  alt="Omnifood Cards Section"
-                  class="modal-img of-img-3"
-                />
-
-                <article class="modal-cta">
-                  <h2 class="modal-cta-title">Visit Omnifood or contact me!</h2>
-                  <div class="cta-btns">
-                    <a
-                      href="https://omnifood-ryani.netlify.app"
-                      class="of-btn btn"
-                      target="_blank"
-                      >Omnifood</a
-                    >
-
-                    <a href="contact.html" class="contact-btn btn"
-                      >Contact me</a
-                    >
-                  </div>
-                </article>
-                <img
-                  src="img/img-projects/of-img-4.webp"
-                  alt="Omnifood Call-to-Action Section"
-                  class="modal-img of-img-4"
-                />
+          <article
+            class="slide-4 project project-mobile project-rps hidden"
+            data-type="mobile"
+          >
+            <div class="project-card-text-box">
+              <!-- text -->
+              <h1 class="projects-h1">Rock, Papper, Scissors</h1>
+              <p class="project-card-description">
+                Are you too attached to your phone to put it down long enough to
+                play rock, papper, scissors with your hands? I have you covered!
+              </p>
+            </div>
+            <!-- image -->
+            <div class="img-box img-box-mobile">
+              <img
+                src="img/img-projects/rps.png"
+                alt="Picture of my Rock, Papper,Scissors game"
+                class="project-img cv-img"
+              />
+            </div>
+          </article>
+          <aside class="more-modal modal-4">
+            <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            <div class="modal-content">
+              <h2>Rock, Papper,Scissors</h2>
+              <div class="modal-type-container">
+                <h4>Category: &nbsp &nbsp Game</h4>
+                <a
+                  href="https://ryiguchi.github.io/guess-a-number-game/rps.html"
+                  class="btn btn-modal btn-rps"
+                  target="_blank"
+                  >Play</a
+                >
               </div>
-            </aside>
-          </section>
+              <div class="modal-tech-container">
+                <h4>Tech used: &nbsp &nbsp HTML, CSS, JavaScript</h4>
+                <a
+                  href="https://ryiguchi.github.io/guess-a-number-game/guess-num.html"
+                  class="btn btn-modal btn-rps"
+                  target="_blank"
+                  >GitHub</a
+                >
+              </div>
+              <p>
+                This is a mobile first school project that has not yet been
+                optimized for different screen sizes.
+              </p>
+            </div>
+          </aside>
 
-          <!-- PROJECT IMAGES FOR THE RIGHT SIDE ----------------------------->
+          <!-- GUESS GAME ----------- -->
 
-          <section class="slide-right">
-            <img
-              src="img/img-projects/cv.webp"
-              alt="Right side carousel image"
-              class="cv-slide-img-right"
-            />
-            <img
-              src="img/img-projects/bj.webp"
-              alt="Right side carousel image"
-              class="bj-slide-img-right"
-            />
-            <img
-              src="img/img-projects/of.webp"
-              alt="Right side carousel image"
-              class="of-slide-img-right"
-            />
-          </section>
+          <article
+            class="slide-5 project project-mobile project-guess hidden"
+            data-type="mobile"
+          >
+            <div class="project-card-text-box">
+              <!-- text -->
+              <h1 class="projects-h1">Guess the Number</h1>
+              <p class="project-card-description">
+                Have you often thought that you are psychic? Try this simple
+                game where all you need to do is guess a randomly generated
+                number.
+              </p>
+            </div>
+            <!-- image -->
+            <div class="img-box img-box-mobile">
+              <img
+                src="img/img-projects/guess.png"
+                alt="Picture of my Guess the Number game"
+                class="project-img cv-img"
+              />
+            </div>
+          </article>
+          <aside class="more-modal modal-5">
+            <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            <div class="modal-content">
+              <h2>Guess a Number</h2>
+              <div class="modal-type-container">
+                <h4>Category: &nbsp &nbsp Game</h4>
+                <a
+                  href="https://ryiguchi.github.io/guess-a-number-game/guess-num.html"
+                  class="btn btn-modal btn-guess"
+                  target="_blank"
+                  >Play</a
+                >
+              </div>
+              <div class="modal-tech-container">
+                <h4>Tech used: &nbsp &nbspHTML, CSS, JavaScript</h4>
+                <a
+                  href="https://github.com/Ryiguchi/guess-a-number-game"
+                  class="btn btn-modal btn-guess"
+                  target="_blank"
+                  >GitHub</a
+                >
+              </div>
+              <p>
+                This is a mobile first school project that has not yet been
+                optimized for different screen sizes. The game allows the player
+                to choose the range and the number of guesses.
+              </p>
+            </div>
+          </aside>
+
+          <!-- BLACK JACK PROJECT ---------->
+
+          <article
+            class="slide-6 project project-desktop project-bj hidden"
+            data-type="desktop"
+          >
+            <div class="project-card-text-box">
+              <!-- text -->
+              <h1 class="projects-h1">Black Jack</h1>
+              <p class="project-card-description">
+                My first game! Play against the dealer and see if its your lucky
+                day!
+              </p>
+            </div>
+            <!-- image -->
+            <div class="img-box img-box-monitor">
+              <img
+                src="img/img-projects/blackjack.png"
+                alt="Picture of my BlackJack game"
+                class="project-img cv-img"
+              />
+            </div>
+          </article>
+          <aside class="more-modal modal-6">
+            <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            <div class="modal-content">
+              <h2>Blackjack</h2>
+              <div class="modal-type-container">
+                <h4>Category: &nbsp &nbspGame</h4>
+                <a
+                  href="https://ryiguchi.github.io/blackjack-game"
+                  class="btn btn-modal btn-bj"
+                  target="_blank"
+                  >Play</a
+                >
+              </div>
+              <div class="modal-tech-container">
+                <h4>Tech used: &nbsp &nbsp HTML, CSS, JavaScript</h4>
+                <a
+                  href="https://github.com/Ryiguchi/blackjack-game"
+                  class="btn btn-modal btn-bj"
+                  target="_blank"
+                  >GitHub</a
+                >
+              </div>
+              <p>
+                This is my first attempt at a game when I had very little
+                knowledge of JavaScript. The game needs some design and
+                responsivness work but the logic is sound.
+              </p>
+            </div>
+          </aside>
+
+          <!-- CV PROJECT ------------>
+
+          <article
+            class="slide-7 project project-desktop project-cv hidden"
+            data-type="desktop"
+          >
+            <div class="project-card-text-box">
+              <!-- text -->
+              <h1 class="projects-h1">My CV-Website Without JavaScript</h1>
+              <p class="project-card-description">
+                The first version of my CV, created without any Javascript.
+              </p>
+            </div>
+            <div class="img-box img-box-monitor">
+              <img
+                src="img/img-projects/cv.png"
+                alt="Picture of my CV website"
+                class="project-img cv-img"
+              />
+            </div>
+          </article>
+          <aside class="more-modal modal-7">
+            <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            <div class="modal-content">
+              <h2>My CV without JavaScript</h2>
+              <div class="modal-type-container">
+                <h4>Category: &nbsp &nbsp Website</h4>
+                <a
+                  href="https://ryiguchi.github.io/my-cv"
+                  class="btn btn-modal btn-cv"
+                  target="_blank"
+                  >Visit</a
+                >
+              </div>
+              <div class="modal-tech-container">
+                <h4>Tech used: &nbsp &nbsp HTML, CSS</h4>
+                <a
+                  href="https://github.com/Ryiguchi/my-cv"
+                  class="btn btn-modal btn-cv"
+                  target="_blank"
+                  >GitHub</a
+                >
+              </div>
+              <p>
+                This was the first version of my CV where I used only CSS for
+                the functionality. I can now do magic with checkboxes!
+                Unfortunately, its a useless skill!
+              </p>
+            </div>
+          </aside>
+
+          <!-- OMNIFOOD PROJECT ----------->
+
+          <article
+            class="slide-8 project project-desktop project-of hidden"
+            data-type="desktop"
+          >
+            <div class="project-card-text-box">
+              <!-- text -->
+
+              <h1 class="projects-h1">Omnifood Website</h1>
+              <p class="project-card-description">
+                My first website which helped me develop essential web
+                development skills.
+              </p>
+            </div>
+            <div class="img-box img-box-monitor">
+              <img
+                src="img/img-projects/omni.png"
+                alt="Picture of my Omnifood website"
+                class="project-img of-img"
+              />
+            </div>
+          </article>
+          <aside class="more-modal modal-8">
+            <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            <div class="modal-content">
+              <h2>Omnifood</h2>
+              <div class="modal-type-container">
+                <h4>Category: &nbsp &nbspWebsite</h4>
+                <a
+                  href="https://ryiguchi.github.io/omnifood-website"
+                  class="btn btn-modal btn-of"
+                  target="_blank"
+                  >Visit</a
+                >
+              </div>
+              <div class="modal-tech-container">
+                <h4>Tech used: &nbsp &nbsp HTML, CSS</h4>
+                <a
+                  href="https://github.com/Ryiguchi/omnifood-website"
+                  class="btn btn-modal btn-of"
+                  target="_blank"
+                  >GitHub</a
+                >
+              </div>
+              <p>
+                This project was a part of Jonas Schmedtmann's Udemy course. The
+                design is his but I developed the page together with him for
+                learning purposes.
+              </p>
+            </div>
+          </aside>
+
+          <!-- BANKIST ------------ -->
+
+          <article
+            class="slide-9 project project-desktop project-bankist hidden"
+            data-type="desktop"
+          >
+            <div class="project-card-text-box">
+              <!-- text -->
+              <h1 class="projects-h1">Bankist Website</h1>
+              <p class="project-card-description">
+                My first website with JavaScript that helped me learn essential
+                development skills.
+              </p>
+            </div>
+            <!-- image -->
+            <div class="img-box img-box-monitor">
+              <img
+                src="img/img-projects/bank.png"
+                alt="Picture of my BlackJack game"
+                class="project-img cv-img"
+              />
+            </div>
+          </article>
+          <aside class="more-modal modal-9">
+            <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            <div class="modal-content">
+              <h2>Bankist</h2>
+              <div class="modal-type-container">
+                <h4>Category: &nbsp &nbsp Game</h4>
+                <a
+                  href="https://ryiguchi.github.io/bankist-website"
+                  class="btn btn-modal btn-bankist"
+                  target="_blank"
+                  >Visit</a
+                >
+              </div>
+              <div class="modal-tech-container">
+                <h4>Tech used: &nbsp&nbsp JavaScript</h4>
+                <a
+                  href="https://github.com/Ryiguchi/bankist-website"
+                  class="btn btn-modal btn-bankist"
+                  target="_blank"
+                  >GitHub</a
+                >
+              </div>
+              <p>
+                This project was a part of Jonas Schmedtmann's Udemy course. The
+                design is his but I developed the page together with him for
+                learning purposes.
+              </p>
+            </div>
+          </aside>
 
           <!-- PAGINATION ------------------------------------------------->
 
           <div class="pagination">
-            <ul>
-              <li class="p-1">1</li>
-              <li class="p-2">2</li>
-              <li class="p-3">3</li>
-            </ul>
+            <ul class="pagination-list"></ul>
           </div>
         </div>
       </main>
