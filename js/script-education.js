@@ -37,7 +37,6 @@ tabContainers.forEach((el) => {
   el.addEventListener("click", (e) => {
     const clicked = e.target.closest(".tab");
     if (!clicked || clicked.classList.contains("tab-active")) return;
-    console.log("hi");
     const section = clicked.classList.contains("tab-ed") ? "ed" : "skill";
     changeActiveTab(clicked, section);
   });
