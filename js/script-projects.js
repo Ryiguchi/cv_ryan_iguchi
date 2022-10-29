@@ -126,6 +126,7 @@ const projectSlider = function () {
   slider.addEventListener("touchend", (e) => {
     e.preventDefault();
     end = e.changedTouches[0].screenX;
+    fullScreen();
     calcSwipe(start, end);
   });
 
