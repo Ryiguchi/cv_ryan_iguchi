@@ -3181,39 +3181,39 @@ body.dark .more-modal {
   }
 
   .project-mine {
-    background: #80640c;
+    background: linear-gradient(to top, #b9a150, #80640c);
   }
 
   .project-pig {
-    background: #a3396e;
+    background: linear-gradient(to top, #b36089, #9b2c47);
   }
 
   .project-memory {
-    background: #2573bd;
+    background: linear-gradient(to top, rgb(52, 141, 224), #1d5e9b);
   }
 
   .project-rps {
-    background: #8b2976;
+    background: linear-gradient(to top, #c050a8, #8b2976);
   }
 
   .project-guess {
-    background: #262d8f;
+    background: linear-gradient(to top, #66579c, #372380);
   }
 
   .project-bj {
-    background: #328132;
+    background: linear-gradient(to top, #47a747, #136813);
   }
 
   .project-cv {
-    background: #b88a55;
+    background: linear-gradient(to top, #d8b894, #b88a55);
   }
 
   .project-of {
-    background: #e67e22;
+    background: linear-gradient(to top, #ffc694, #e67e22);
   }
 
   .project-bankist {
-    background: #3f8b0c;
+    background: linear-gradient(to top, #8ad459, #3f8b0c);
   }
 }
 
