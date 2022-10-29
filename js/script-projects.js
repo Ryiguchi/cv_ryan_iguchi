@@ -21,7 +21,9 @@ const overlay = document.querySelector(".overlay");
 // VARIABLE DECLARATIONS /////////////////////
 //////////////////////////////////////////////
 
-let curSlide = 1;
+let curSlide = 1,
+  start,
+  end;
 const maxSlide = slides.length;
 
 //////////////////////////////////////////////
@@ -92,23 +94,39 @@ const projectSlider = function () {
     slider.scrollIntoView({ behavior: "smooth" });
   };
 
+  const calcSwipe = function (start, end) {
+    start - end > 0 ? nextSlide() : previousSlide();
+    start = end = 0;
+  };
+
   // EVENT LISTENERS
 
   rightArrow.addEventListener("click", nextSlide),
     leftArrow.addEventListener("click", previousSlide);
 
-  document.addEventListener("keydown", function (e) {
+  document.addEventListener("keydown", (e) => {
     e.key === "ArrowRight" && nextSlide();
     e.key === "ArrowLeft" && previousSlide();
   });
 
-  pagList.addEventListener("click", function (e) {
+  pagList.addEventListener("click", (e) => {
     if (!e.target.classList.contains("page-num")) return;
     const { slide } = e.target.dataset;
     curSlide = slide;
     fullScreen();
     goToSlide(slide);
     changePageNum(slide);
+  });
+
+  slider.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    start = e.changedTouches[0].screenX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    end = e.changedTouches[0].screenX;
+    calcSwipe(start, end);
   });
 
   init();
@@ -129,20 +147,20 @@ const closeModal = function () {
 };
 
 learnMoreBtns.forEach((btn) => {
-  btn.addEventListener("click", function (e) {
+  btn.addEventListener("click", (e) => {
     e.preventDefault();
     openModal();
   });
 });
 
 closeIcons.forEach((icon) => {
-  icon.addEventListener("click", function (e) {
+  icon.addEventListener("click", (e) => {
     e.preventDefault();
     closeModal();
   });
 });
 
-overlay.addEventListener("click", function (e) {
+overlay.addEventListener("click", (e) => {
   e.preventDefault();
   closeModal();
 });
