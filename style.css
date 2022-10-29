@@ -3179,27 +3179,42 @@ body.dark .more-modal {
   .btn-modal {
     width: 10rem;
   }
-  /* .projects-h1 {
-    font-size: 2.4rem;
-    margin-top: 2rem;
+
+  .project-mine {
+    background: #80640c;
   }
 
-  .project-card-description {
-    font-size: 1.6rem;
+  .project-pig {
+    background: #a3396e;
   }
 
-  .more-btn {
-    font-size: 1.2rem;
-    width: 12rem;
+  .project-memory {
+    background: #2573bd;
   }
 
-  .project-mobile .project-card-text-box {
-    width: 50%;
+  .project-rps {
+    background: #8b2976;
   }
 
-  .project-mobile .img-box {
-    width: 30%;
-  } */
+  .project-guess {
+    background: #262d8f;
+  }
+
+  .project-bj {
+    background: #328132;
+  }
+
+  .project-cv {
+    background: #b88a55;
+  }
+
+  .project-of {
+    background: #e67e22;
+  }
+
+  .project-bankist {
+    background: #3f8b0c;
+  }
 }
 
 /* ****************************************************** */

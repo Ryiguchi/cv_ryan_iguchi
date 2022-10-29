@@ -101,27 +101,6 @@ const projectSlider = function () {
     start = end = 0;
   };
 
-  // const checkForBtns = function (el) {
-  //   let pressedButton = false;
-  //   if (el.classList.contains("more-btn")) {
-  //     openModal();
-  //     pressedButton = true;
-  //   }
-  //   if (el.classList.contains("arrow-left-icon")) {
-  //     previousSlide();
-  //     pressedButton = true;
-  //   }
-  //   if (el.classList.contains("arrow-right-icon")) {
-  //     nextSlide();
-  //     pressedButton = true;
-  //   }
-  //   return pressedButton;
-  // };
-
-  // const checkElements = function (el) {
-  // if(el.classList.contains('overlay') || el.classList.parentElement.contains(''))
-  // }
-
   // EVENT LISTENERS
 
   rightArrow.addEventListener("click", nextSlide),
@@ -143,19 +122,12 @@ const projectSlider = function () {
 
   slider.addEventListener("touchstart", (e) => {
     start = end = 0;
-    // e.preventDefault();
-    // if (checkForBtns(e.target)) return;
-
     start = e.changedTouches[0].screenX;
   });
 
   slider.addEventListener("touchend", (e) => {
-    // e.preventDefault();
     if (start === 0) return;
-    // if (checkForBtns(e.target)) return;
     end = e.changedTouches[0].screenX;
-
-    fullScreen();
     calcSwipe(start, end);
   });
 
