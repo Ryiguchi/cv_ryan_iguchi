@@ -15,13 +15,13 @@ const slides = document.querySelectorAll(".project");
 const pagList = document.querySelector(".pagination-list");
 const slider = document.querySelector(".slider");
 const learnMoreModals = document.querySelectorAll(".more-modal");
+const overlay = document.querySelector(".overlay");
 
 //////////////////////////////////////////////
 // VARIABLE DECLARATIONS /////////////////////
 //////////////////////////////////////////////
 
 let curSlide = 1;
-let modalOpen = false;
 const maxSlide = slides.length;
 
 //////////////////////////////////////////////
@@ -78,7 +78,6 @@ const projectSlider = function () {
     fullScreen();
     curSlide === maxSlide ? (curSlide = 1) : curSlide++;
     goToSlide(curSlide);
-    closeModals();
     changePageNum(curSlide);
   };
 
@@ -86,19 +85,11 @@ const projectSlider = function () {
     fullScreen();
     curSlide === 1 ? (curSlide = maxSlide) : curSlide--;
     goToSlide(curSlide);
-    closeModals();
     changePageNum(curSlide);
   };
 
   const fullScreen = function () {
     slider.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const closeModals = function () {
-    modalOpen = false;
-    learnMoreModals.forEach((el) => {
-      el.style.top = "-20rem";
-    });
   };
 
   // EVENT LISTENERS
@@ -118,7 +109,6 @@ const projectSlider = function () {
     fullScreen();
     goToSlide(slide);
     changePageNum(slide);
-    closeModals();
   });
 
   init();
@@ -128,25 +118,31 @@ projectSlider();
 
 // MODAL POP-UP
 
+const openModal = function () {
+  document.querySelector(`.modal-${curSlide}`).style.top = "50%";
+  overlay.classList.remove("hidden");
+};
+
+const closeModal = function () {
+  document.querySelector(`.modal-${curSlide}`).style.top = "-30rem";
+  overlay.classList.add("hidden");
+};
+
 learnMoreBtns.forEach((btn) => {
   btn.addEventListener("click", function (e) {
     e.preventDefault();
-    modalOpen = true;
-    document.querySelector(`.modal-${curSlide}`).style.top = "50%";
+    openModal();
   });
 });
 
 closeIcons.forEach((icon) => {
   icon.addEventListener("click", function (e) {
     e.preventDefault();
-    modalOpen = false;
-    e.target.parentElement.style.top = "-20rem";
+    closeModal();
   });
 });
 
-slides.forEach((el) => {
-  el.addEventListener("click", function (e) {
-    if (!modalOpen || e.target.classList.contains("more-btn")) return;
-    document.querySelector(`.modal-${curSlide}`).style.top = "-20rem";
-  });
+overlay.addEventListener("click", function (e) {
+  e.preventDefault();
+  closeModal();
 });
