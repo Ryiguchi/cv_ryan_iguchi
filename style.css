@@ -38,7 +38,7 @@ body {
 
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 20rem);
 
   background: linear-gradient(to right, #cc9a66 40%, 40%, #fff);
   overflow: hidden;
@@ -1898,7 +1898,41 @@ body.dark .company {
 /* EDUCATION - SECTION*********************************** */
 /* ****************************************************** */
 
-.schools {
+.nav-section {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 3rem 0 8rem 0;
+}
+
+.scroll-icon {
+  width: 2rem;
+  height: 2rem;
+  stroke-width: 2px;
+}
+
+.nav-section a:link,
+.nav-section a:visited {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  width: 18rem;
+  background-color: #297a4a;
+  color: #fff;
+}
+.nav-section a:hover,
+.nav-section a:active {
+  background-color: #fff;
+  color: #333;
+  box-shadow: inset 1px 1px 0 #000, inset -1px -1px 0 #000;
+}
+
+.schools,
+.skills {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1908,66 +1942,78 @@ body.dark .company {
   margin: 5rem auto;
 }
 
-.tabs-labels-container {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  height: 80%;
-}
-
-.tabs-container-ed {
+.tabs-container {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding: 0.5rem 0.3rem 0.3rem 0.3rem;
-  background-color: var(--green);
-  height: 29rem;
+  width: 75%;
 }
 
-.tab-back {
-  background-color: #cc9a66;
-  height: 100%;
+.tabs-container-outer {
+  display: flex;
+  width: 30%;
 }
 
-.tab-ed {
+.section-title {
+  color: #297a4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+
+  width: 25%;
+}
+
+.tab {
   z-index: 1000;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  height: 7rem;
 
   background-color: rgba(255, 255, 255, 0.5);
   padding: 1rem 2rem;
 }
 
-.tab-ed:hover {
+.tab:hover {
   background-color: rgba(255, 255, 255, 0.3);
   color: #000;
 }
 
 .tab-pointer {
-  z-index: -100;
   display: none;
   position: absolute;
   right: 0;
-  transform: translateX(calc(50% + 0.2rem)) rotate(45deg);
+  transform: translateX(50%) rotate(45deg);
   aspect-ratio: 1 /1;
   height: 45%;
-  background-color: #63e095;
-  border-right: 0.3rem solid #297a4a;
-  border-top: 0.3rem solid #297a4a;
+  background-color: #297a4a;
 }
 
-.tab-content-ed {
+.tab-content {
   background-color: #fff;
-
   width: 70%;
-  height: 50rem;
   padding: 3rem 3rem 3rem 5rem;
   border-top: 1px solid #ddd;
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+}
+
+.tab-content-ed {
+  height: 50rem;
+}
+
+.tab-content-skill {
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .tab-content-header {
@@ -2000,57 +2046,23 @@ body.dark .company {
   margin-left: 1.6rem;
 }
 
-/* Category tabs */
-
-.category-tabs {
-  display: flex;
-  gap: 1rem;
-}
-
-.category-back {
-  background-color: #cc9a66;
-  width: 50%;
-}
-
-.category-tab {
-  display: flex;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  width: 100%;
-  padding: 1rem 0;
-}
-
-.category-tab:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  color: #000;
-}
-
 /* Active tabs */
-.tab-ed-active {
-  background-color: #63e095;
-  color: #333;
-}
 
-.tab-ed-active:hover {
-  background-color: #63e095;
-  color: #333;
-}
-
-.category-active {
+.tab-active {
   background-color: #297a4a;
-  color: #fff;
+  color: #eee;
 }
 
-.category-active:hover {
+.tab-active:hover {
   background-color: #297a4a;
-  color: #fff;
+  color: #eee;
 }
 
 .tab-content-active {
   display: initial;
 }
 
-.tab-ed-active .tab-pointer {
+.tab-active .tab-pointer {
   display: initial;
 }
 
@@ -2095,71 +2107,16 @@ body.dark .company {
 /* SKILLS - SECTION************************************** */
 /* ****************************************************** */
 
-/* Skills tabs */
-
-.skills-category {
-  font-size: 1.6rem;
-  color: #555;
-}
-
-.skills-heading {
-  display: flex;
-  align-items: center;
-}
-
-.skills-categories {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.skills-heading--secondary {
-  gap: 1rem;
-}
-
-.logo {
-  --ionicon-stroke-width: 5rem;
-  color: #555;
-}
-
-.logo-secondary {
-  font-size: 2rem;
-}
-
-.logo-software {
-  stroke: #555;
-}
-
-/* Skills content */
-
-.tab-content-skill {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .skills-list {
-  width: 75%;
+  width: 80%;
   gap: 2rem;
-  padding: 3rem;
-  /* border: 1px solid #63e095; */
 }
-
-.skills-list-lang {
-  margin-bottom: 15rem;
-}
-/* 
-.skills-list-prog {
-  margin-top: 8rem;
-} */
 
 .skills-list li {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-/*  */
 
 /* SKILLS BAR******************************************** */
 
@@ -2426,152 +2383,167 @@ body.dark .download-btn:hover {
 /* ****************************************************** */
 
 /* ****************************************************** */
-/* 1000px *********************************************** */
+/* 920px *********************************************** */
 /* ****************************************************** */
 
-@media (max-width: 62.5em) {
-  .education-h1 {
-    font-size: 2.4rem;
-  }
-
-  .logo-primary {
-    font-size: 2.4rem;
-  }
-
-  .skills-category {
-    font-size: 2rem;
-  }
-  .schools-heading {
-    font-size: 2.4rem;
-  }
-
-  .school-icon {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .attend-date {
-    font-size: 1.6rem;
-    font-weight: 600;
-  }
-
-  .school-name {
-    font-size: 2rem;
-    font-weight: 600;
-  }
-}
-
-/* ****************************************************** */
-/* 850px ************************************************ */
-/* ****************************************************** */
-
-@media (max-width: 53.125em) {
-  .education-main {
-    flex-direction: column-reverse;
-  }
-
-  .schools {
-    width: 80%;
-    margin: 5rem auto 0 auto;
-  }
-
-  .attend-date {
-    font-size: 2rem;
-  }
-
-  .school-name {
-    font-size: 2.4rem;
-  }
-
-  .skills-container {
-    width: 80%;
-    border: none !important;
-    margin: auto;
-  }
-
+@media (max-width: 57.5em) {
+  .schools,
   .skills {
-    align-self: start;
-    margin: 4.8rem 0;
+    width: 90%;
+  }
+
+  .tabs-container-outer {
+    width: 35%;
+  }
+
+  .tab-content {
+    width: 65%;
+    padding: 3rem 3rem 3rem 5rem;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .nav-section a:link,
+  .nav-section a:visited {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    width: 15rem;
   }
 }
 
 /* ****************************************************** */
-/* 675px ************************************************ */
+/* 700px ************************************************ */
 /* ****************************************************** */
 
-@media (max-width: 42.1875em) {
-  .schools {
-    width: 90%;
+@media (max-width: 43.75em) {
+  .nav-section {
+    margin-bottom: 0;
   }
-  .skills-container {
-    width: 90%;
+
+  .schools,
+  .skills {
+    flex-direction: column;
+    width: 80vw;
+  }
+
+  .tabs-container-outer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .section-title {
+    writing-mode: initial;
+    transform: rotate(0);
+    width: 100%;
+  }
+
+  .tabs-container {
+    /* background-color: #cc9a66; */
+    position: relative;
+    flex-direction: row;
+    gap: 3px;
+    width: 100%;
+    height: 7rem;
+  }
+
+  .tab {
+    background-color: #297a49b0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    width: 50%;
+    height: 6rem;
+    border: 1px solid #333;
+  }
+
+  .tab .tab-ed-name,
+  .tab .tab-ed-date {
+    display: none;
+  }
+
+  .tab-1-ed {
+    z-index: 75;
+  }
+
+  .tab-2-ed {
+    transform: translateX(33.33%);
+    z-index: 50;
+  }
+
+  .tab-3-ed {
+    transform: translateX(66.66%);
+    z-index: 25;
+  }
+
+  .tab-4-ed {
+    transform: translateX(100%);
+
+    z-index: 0;
+  }
+
+  .tab-pointer {
+    z-index: -1;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 40%) rotate(45deg);
+  }
+
+  .tab-content {
+    width: 100%;
+    height: auto;
+    padding: 2.4rem;
+  }
+
+  .tab-content-subjects {
+    gap: 1.2rem;
+  }
+
+  .tab-active {
+    background-color: #297a4a;
+    z-index: 100;
+    height: 7.3rem;
+    border: none;
+  }
+
+  .tab-active .tab-ed-name,
+  .tab-active .tab-ed-date {
+    display: initial;
+  }
+
+  .skills-list {
+    width: 100%;
+    gap: 2rem;
   }
 }
 
 /* ****************************************************** */
-/* 600px ************************************************ */
+/* 500px ************************************************ */
 /* ****************************************************** */
 
-@media (max-width: 37.5em) {
-  .education-h1 {
-    font-size: 2rem;
+@media (max-width: 31.25em) {
+  .logo {
+    display: none;
   }
 
-  .logo-primary {
-    font-size: 2.4rem;
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+/* ****************************************************** */
+/* 400px ************************************************ */
+/* ****************************************************** */
+
+@media (max-width: 25em) {
+  .schools,
+  .skills {
+    width: 90vw;
   }
 
-  .skills-category {
-    font-size: 1.6rem;
-  }
-
-  .school-icon {
-    width: 2.4rem;
-    height: 2.4rem;
-    margin-right: 2.4rem;
-  }
-
-  .schools-heading {
-    font-size: 2rem;
-  }
-
-  .school-top {
-    padding: 1.2rem 1.2rem;
-  }
-
-  .attend-date {
-    font-size: 1.6rem;
-  }
-
-  .school-name {
-    font-size: 1.8rem;
-  }
-
-  .arrow-down {
-    top: 2.4rem;
-    right: 1.6rem;
-  }
-
-  .arrow-up {
-    top: 2.4rem;
-    right: 1.6rem;
-  }
-
-  .accordion-toggle {
-    top: 2.5rem;
-    right: 0.5rem;
-  }
-
-  .logo-chas {
-    margin: 0;
-  }
-
-  .logo-occ {
-    margin: 0;
-  }
-
-  .logo-psu {
-    margin: 0;
+  .tab {
+    font-size: 1.4rem;
   }
 }
 
@@ -2579,7 +2551,7 @@ body.dark .download-btn:hover {
 /* 475 px *********************************************** */
 /* ****************************************************** */
 
-@media (max-width: 29.6875em) {
+/* @media (max-width: 29.6875em) {
   .school-top:not(.school-top--heading) {
     display: block;
   }
@@ -2615,7 +2587,7 @@ body.dark .download-btn:hover {
   .school-accordion .education-ul {
     margin-left: 1rem;
   }
-}
+} */
 
 /* ****************************************************** */
 /* 375 px *********************************************** */

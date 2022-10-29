@@ -5,52 +5,46 @@
 //////////////////////////////////////////////
 
 // Elements
-const tabsContainer = document.querySelector(".tabs-labels-container");
-const tabs = document.querySelectorAll(".tab-ed");
-const tabsContent = document.querySelectorAll(".tab-content-ed");
-const educationTab = document.querySelector(".educaton-tab");
-const categoryTabsContainer = document.querySelector(".category-tabs");
-const categoryTabs = document.querySelectorAll(".category-tab");
-const secondaryTabsContainers = document.querySelectorAll(".tabs-container-ed");
-const langTab = document.querySelector(".tab-5-ed");
-
-//////////////////////////////////////////////
-// FUNCTIONS /////////////////////////////////
-//////////////////////////////////////////////
+const tabsContainerEd = document.querySelector(".tabs-container-ed");
+const tabsContainerSkill = document.querySelector(".tabs-container-skill");
+const tabContainers = document.querySelectorAll(".tabs-container");
+const tabsEd = document.querySelectorAll(".tab-ed");
+const tabsSkill = document.querySelectorAll(".tab-skill");
+const tabsContentEd = document.querySelectorAll(".tab-content-ed");
+const tabsContentSkill = document.querySelectorAll(".tab-content-skill");
+const navSection = document.querySelector(".nav-section");
 
 // TABBED COMPONENT //
 
-tabsContainer.addEventListener("click", function (e) {
-  e.preventDefault();
-  const clicked = e.target.closest(".tab-ed");
-  if (!clicked) return;
+// FUNCTIONS /////////////////////////////////
 
-  tabs.forEach((el) => el.classList.remove("tab-ed-active"));
+const changeActiveTab = function (clicked, section) {
+  document.querySelectorAll(`.tab-${section}`).forEach((tab) => {
+    tab.classList.remove("tab-active");
+  });
+  clicked.classList.add("tab-active");
 
-  clicked.classList.add("tab-ed-active");
-
-  tabsContent.forEach((el) => el.classList.add("hidden"));
-
+  document.querySelectorAll(`.tab-content-${section}`).forEach((tab) => {
+    tab.classList.add("hidden");
+  });
   document
-    .querySelector(`.tab-content-ed-${clicked.dataset.num}`)
+    .querySelector(`.tab-content-${section}-${clicked.dataset.num}`)
     .classList.remove("hidden");
+};
+
+// Event Handlers /////////////////////////////////
+tabContainers.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    const clicked = e.target.closest(".tab");
+    if (!clicked || clicked.classList.contains("tab-active")) return;
+    console.log("hi");
+    const section = clicked.classList.contains("tab-ed") ? "ed" : "skill";
+    changeActiveTab(clicked, section);
+  });
 });
 
-categoryTabsContainer.addEventListener("click", function (e) {
+navSection.addEventListener("click", (e) => {
   e.preventDefault();
-  const clicked = e.target.closest(".category-tab");
-  if (!clicked || clicked.classList.contains("category-active")) return;
-
-  categoryTabs.forEach((el) => el.classList.toggle("category-active"));
-  secondaryTabsContainers.forEach((el) => el.classList.toggle("hidden"));
-
-  tabs.forEach((el) => el.classList.remove("tab-ed-active"));
-  document
-    .querySelector(`.tab-${clicked.dataset.tab}-ed`)
-    .classList.add("tab-ed-active");
-
-  tabsContent.forEach((el) => el.classList.add("hidden"));
-  document
-    .querySelector(`.tab-content-ed-${clicked.dataset.tab}`)
-    .classList.remove("hidden");
+  const id = e.target.closest("a").getAttribute("href");
+  document.querySelector(id).scrollIntoView({ behavior: "smooth" });
 });
