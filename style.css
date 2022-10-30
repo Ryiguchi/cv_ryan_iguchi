@@ -3322,8 +3322,8 @@ input:not(:placeholder-shown) + span,
 select:valid + span,
 textarea:valid + span,
 textarea:focus + span {
-  transform: translate(-0.7rem, -3rem);
-  font-size: 1.6rem;
+  transform: translate(-0.7rem, -3.5rem);
+  font-size: 1.8rem;
   font-weight: initial;
 }
 
@@ -3554,6 +3554,20 @@ body.dark .contact-info-link span {
   .contact-info-text--bottom {
     margin: 2rem 0;
     text-align: center;
+  }
+
+  .contact-form span {
+    font-size: 1.6rem;
+    top: 0.9rem;
+  }
+
+  input:focus + span,
+  input:not(:placeholder-shown) + span,
+  select:valid + span,
+  textarea:valid + span,
+  textarea:focus + span {
+    font-size: 1.6rem;
+    transform: translate(-0.7rem, -3.8rem);
   }
 
   .contact-btn {
