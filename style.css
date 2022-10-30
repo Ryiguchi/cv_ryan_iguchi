@@ -282,6 +282,10 @@ body.dark footer {
   color: #aaa;
 }
 
+body.dark .mobile-nav--icon {
+  color: var(--neon);
+}
+
 body.dark .dark-mode-outer {
   background: #fff;
   border: 2px solid #000;
@@ -979,7 +983,6 @@ body.dark .main {
 
 .body-about.dark .social-icon {
   color: var(--green);
-  transition: all 0.3s linear;
 }
 
 .body-about.dark div h1,
@@ -989,14 +992,12 @@ body.dark .main {
 .body-about.dark div p,
 .body-about.dark div .btn-resume {
   color: #aaa;
-  transition: all 0.3s linear;
 }
 
 .body-about.dark .btn-projects {
   background-color: #000;
   color: #aaa;
   box-shadow: none;
-  transition: all 0.3s linear;
 }
 
 .body-about.dark .btn-projects:hover,
@@ -2305,7 +2306,9 @@ details {
 /* ****************************************************** */
 /* ****************************************************** */
 
-.body-education.dark .section-title {
+.body-education.dark .section-title,
+.body-education.dark .tab-content h2,
+.body-education.dark .tab-content h4 {
   color: var(--neon);
 }
 
@@ -2316,21 +2319,19 @@ details {
 .body-education.dark .tab-active {
   color: var(--neon);
   background-color: #363a3f;
+  transition: all 0.3s;
 }
 
 .body-education.dark .tab-pointer {
   background-color: #363a3f;
+  transition: all 0.3s;
 }
 
 .body-education.dark .tab-content {
   color: #aaa;
   background-color: #495057;
   border: none;
-}
-
-.body-education.dark .tab-content h2,
-.body-education.dark .tab-content h4 {
-  color: var(--neon);
+  transition: all 0.3s;
 }
 
 .body-education.dark .nav-section a:link,
@@ -2338,6 +2339,7 @@ details {
   color: var(--neon);
   background-color: #363a3f;
   box-shadow: inset 1px 1px 0 var(--neon), inset -1px -1px 0 var(--neon);
+  transition: all 0.3s;
 }
 
 .body-education.dark .skills-bar {
@@ -2954,7 +2956,10 @@ details {
 }
 
 .body-projects.dark .arrow-icon,
-.body-projects.dark h1 {
+.body-projects.dark h1,
+.body-projects.dark .more-modal h2,
+.body-projects.dark .more-modal h4,
+.body-projects.dark .more-modal .close-icon {
   color: var(--neon);
 }
 
@@ -2981,11 +2986,6 @@ details {
 
 .body-projects.dark .more-modal {
   background-color: #495057;
-}
-.body-projects.dark .more-modal h2,
-.body-projects.dark .more-modal h4,
-.body-projects.dark .more-modal .close-icon {
-  color: var(--neon);
 }
 
 .body-projects.dark .more-modal a:link,
@@ -3349,6 +3349,7 @@ textarea:focus + span {
   width: 10rem;
 
   border-radius: 5px;
+  transition: all 0.3s;
 }
 
 .send-btn {
@@ -3382,17 +3383,17 @@ textarea:focus + span {
 /* ****************************************************** */
 /* ****************************************************** */
 
-body.dark .contact-form-section {
+.body-contact.dark .contact-form-section {
   background-color: #495057a1;
 
   color: #aaa;
   transition: all 0.3s linear;
 }
 
-body.dark .contact-info-section,
-body.dark .contact-info-link:hover,
-body.dark form,
-body.dark label span {
+.body-contact.dark .contact-info-section,
+.body-contact.dark .contact-info-link:hover,
+.body-contact.dark form,
+.body-contact.dark label span {
   color: var(--neon);
 }
 
@@ -3400,23 +3401,33 @@ body.dark .contact-info-link span {
   color: #eee;
 }
 
-body.dark input,
-body.dark select,
-body.dark textarea {
+.body-contact.dark input,
+.body-contact.dark select,
+.body-contact.dark textarea {
   color: #ddd;
   background-color: #333;
 }
 
-body.dark .send-btn {
-  background-color: var(--green);
-  color: #aaa;
+.body-contact.dark .send-btn {
+  background-color: var(--neon);
+  color: #000;
   box-shadow: none;
-  transition: all 0.3s linear;
 }
 
-body.dark .contact-btn:hover {
+.body-contact.dark .reset-btn {
+  box-shadow: none;
+  color: #aaa;
+}
+
+.body-contact.dark .reset-btn:hover {
+  box-shadow: none;
   background-color: #aaa;
-  color: #000;
+  color: #333;
+}
+
+.body-contact.dark .send-btn:hover {
+  background-color: #333;
+  color: #aaa;
 }
 
 /* ****************************************************** */
