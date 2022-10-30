@@ -17,7 +17,6 @@
 
 html {
   font-size: 62.5%;
-  /* scroll-behavior: smooth; */
 }
 
 body {
@@ -25,7 +24,6 @@ body {
   font-size: 1.6rem;
 
   color: #555;
-  background-color: #ccc;
 }
 
 .container {
@@ -34,11 +32,8 @@ body {
 }
 
 .main {
-  display: inline-block;
-
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - 20rem);
 
   background: linear-gradient(to right, #cc9a66 40%, 40%, #fff);
   overflow: hidden;
@@ -971,50 +966,50 @@ body.dark .main {
 /* ****************************************************** */
 /* ****************************************************** */
 
-body.dark .hero-card-left {
+.body-about.dark .hero-card-left {
   background-color: #495057;
   color: #aaa;
   transition: all 0.3s linear;
 }
 
-body.dark .hero-social {
+.body-about.dark .hero-social {
   background-color: #aaa;
   transition: all 0.3s linear;
 }
 
-body.dark .social-icon {
+.body-about.dark .social-icon {
   color: var(--green);
   transition: all 0.3s linear;
 }
 
-body.dark div h1,
-body.dark div h2,
-body.dark div h4,
-body.dark div span,
-body.dark div p,
-body.dark div .btn-resume {
+.body-about.dark div h1,
+.body-about.dark div h2,
+.body-about.dark div h4,
+.body-about.dark div span,
+.body-about.dark div p,
+.body-about.dark div .btn-resume {
   color: #aaa;
   transition: all 0.3s linear;
 }
 
-body.dark .btn-projects {
+.body-about.dark .btn-projects {
   background-color: #000;
   color: #aaa;
   box-shadow: none;
   transition: all 0.3s linear;
 }
 
-body.dark .btn-projects:hover,
-body.dark .btn-resume:hover {
+.body-about.dark .btn-projects:hover,
+.body-about.dark .btn-resume:hover {
   background-color: #aaa;
   color: #000;
 }
 
-body.dark .download-btn {
+.body-about.dark .download-btn {
   color: #aaa !important;
 }
 
-body.dark .download-btn:hover {
+.body-about.dark .download-btn:hover {
   color: #000 !important;
   background-color: #aaa;
 }
@@ -1611,19 +1606,19 @@ details {
 /* DARK MODE - RESUME********************* */
 /* *************************************** */
 
-body.dark .experience {
+.body-resume.dark .experience {
   color: #aaa;
 }
 
-body.dark .company {
+.body-resume.dark .company {
   color: #aaa;
 }
 
-body.dark .experience li {
+.body-resume.dark .experience li {
   color: #aaa;
 }
 
-body.dark .experience {
+.body-resume.dark .experience {
   background-image: linear-gradient(
       rgba(34, 34, 34, 0.8),
       rgba(34, 34, 34, 0.8)
@@ -1631,7 +1626,7 @@ body.dark .experience {
     url("img/img-resume/background-resume.webp");
 }
 
-body.dark .company {
+.body-resume.dark .company {
   color: #ccc;
 }
 
@@ -1871,20 +1866,6 @@ body.dark .company {
 /* ****************************************************** */
 /* ****************************************************** */
 
-.education-h1 {
-  font-size: 3rem;
-  color: var(--green);
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.education-h2 {
-  font-size: 2.4rem;
-  text-transform: uppercase;
-  color: #555;
-  font-weight: 500;
-}
-
 .education-ul {
   display: flex;
   flex-direction: column;
@@ -1914,21 +1895,29 @@ body.dark .company {
 
 .nav-section a:link,
 .nav-section a:visited {
-  color: #fff;
+  color: #555;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   padding: 0.8rem;
   width: 18rem;
-  background-color: #297a4a;
-  color: #fff;
-}
-.nav-section a:hover,
-.nav-section a:active {
   background-color: #fff;
-  color: #333;
-  box-shadow: inset 1px 1px 0 #000, inset -1px -1px 0 #000;
+  box-shadow: inset 1px 1px 0 #555, inset -1px -1px 0 #555;
+}
+
+.nav-section a:hover .scroll-icon,
+.nav-section a:active .scroll-icon {
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes arrow {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0.5rem);
+  }
 }
 
 .schools,
@@ -1978,6 +1967,7 @@ body.dark .company {
 
   background-color: rgba(255, 255, 255, 0.5);
   padding: 1rem 2rem;
+  transition: all 0.3s;
 }
 
 .tab:hover {
@@ -2022,10 +2012,23 @@ body.dark .company {
   margin-bottom: 3rem;
 }
 
+.tab-content h2 {
+  font-size: 3.6rem;
+  font-weight: 500;
+}
+
 .tab-content-header-udemy {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.tab-content h4 {
+  font-size: 2rem;
+}
+
+.tab-content-date {
+  display: none;
 }
 
 .tab-content-description {
@@ -2103,6 +2106,10 @@ body.dark .company {
   width: 12rem;
 }
 
+.logo {
+  display: none;
+}
+
 /* ****************************************************** */
 /* SKILLS - SECTION************************************** */
 /* ****************************************************** */
@@ -2133,7 +2140,7 @@ body.dark .company {
 .skills-bar {
   height: 100%;
   background-color: var(--green);
-  border-radius: 0.4rem 0 0 0.4rem;
+  border-radius: 0.2rem 0 0 0.2rem;
 }
 
 .skills-english {
@@ -2298,82 +2305,43 @@ body.dark .company {
 /* ****************************************************** */
 /* ****************************************************** */
 
-body.dark .attend-date,
-body.dark .school-name,
-body.dark ion-icon,
-body.dark span,
-body.dark .education-h1,
-body.dark .education-h2 {
+.body-education.dark .section-title {
   color: var(--neon);
-  transition: all 0.3s linear;
 }
 
-body.dark .heading-line {
-  border: 1px solid var(--neon);
-  transition: all 0.3s linear;
+.body-education.dark .tab {
+  color: #333;
 }
 
-body.dark .school-accordion,
-body.dark .school-top {
-  background: #495057;
+.body-education.dark .tab-active {
+  color: var(--neon);
+  background-color: #363a3f;
+}
+
+.body-education.dark .tab-pointer {
+  background-color: #363a3f;
+}
+
+.body-education.dark .tab-content {
   color: #aaa;
-  transition: all 0.3s linear;
-}
-
-body.dark .download-btn {
-  color: var(--neon);
-  transition: all 0.3s linear;
-}
-body.dark .download-btn:hover {
-  color: var(--green);
-  background-color: #aaa;
-}
-body.dark .skills-heading--primary,
-body.dark .skills-categories > li {
   background-color: #495057;
+  border: none;
 }
 
-body.dark .skills-container {
-  border-right: 5px solid var(--neon);
+.body-education.dark .tab-content h2,
+.body-education.dark .tab-content h4 {
+  color: var(--neon);
 }
 
-body.dark .skills-heading--primary,
-body.dark .skills-categories > li {
-  border: 2px solid #aaa;
+.body-education.dark .nav-section a:link,
+.body-education.dark .nav-section a:visited {
+  color: var(--neon);
+  background-color: #363a3f;
+  box-shadow: inset 1px 1px 0 var(--neon), inset -1px -1px 0 var(--neon);
 }
 
-body.dark .skills-list--skill {
-  color: #aaa;
-}
-
-body.dark .logo-chas {
-  filter: brightness(350%);
-}
-
-body.dark .logo-occ {
-  filter: brightness(100%) grayscale(100%) invert(1);
-}
-
-body.dark .logo-psu {
-  filter: brightness(80%);
-}
-
-body.dark .logo-software {
-  stroke: var(--neon);
-}
-
-body.dark .skills-bar {
+.body-education.dark .skills-bar {
   background-color: var(--neon);
-}
-
-body.dark .download-btn {
-  background-color: var(--neon);
-  color: #000 !important;
-}
-
-body.dark .download-btn:hover {
-  color: #000 !important;
-  background-color: #aaa;
 }
 
 /* ****************************************************** */
@@ -2404,16 +2372,24 @@ body.dark .download-btn:hover {
     border-bottom: 1px solid #ddd;
   }
 
+  .tab-content h2 {
+    font-size: 3rem;
+  }
+
   .nav-section a:link,
   .nav-section a:visited {
     font-size: 1.6rem;
     padding: 0.8rem;
     width: 15rem;
   }
+
+  .logo {
+    display: none;
+  }
 }
 
 /* ****************************************************** */
-/* 700px ************************************************ */
+/* 700px - MOBILE *************************************** */
 /* ****************************************************** */
 
 @media (max-width: 43.75em) {
@@ -2425,6 +2401,7 @@ body.dark .download-btn:hover {
   .skills {
     flex-direction: column;
     width: 80vw;
+    gap: 0;
   }
 
   .tabs-container-outer {
@@ -2439,61 +2416,52 @@ body.dark .download-btn:hover {
   }
 
   .tabs-container {
-    /* background-color: #cc9a66; */
-    position: relative;
     flex-direction: row;
-    gap: 3px;
     width: 100%;
-    height: 7rem;
+    height: 4.8rem;
   }
 
   .tab {
-    background-color: #297a49b0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    font-size: 1.4rem;
+    background-color: #fff;
     align-items: center;
-    width: 50%;
-    height: 6rem;
+    height: 100%;
     border: 1px solid #333;
+    border-bottom: none;
+    padding: 0.8rem;
+    border-radius: 5px 5px 0 0;
   }
 
-  .tab .tab-ed-name,
+  .tab-ed {
+    width: 25%;
+  }
+
+  .tab-skill {
+    width: 33.33%;
+  }
+
+  .tab:hover {
+    background-color: #eeef;
+  }
+
   .tab .tab-ed-date {
     display: none;
   }
 
-  .tab-1-ed {
-    z-index: 75;
-  }
-
-  .tab-2-ed {
-    transform: translateX(33.33%);
-    z-index: 50;
-  }
-
-  .tab-3-ed {
-    transform: translateX(66.66%);
-    z-index: 25;
-  }
-
-  .tab-4-ed {
-    transform: translateX(100%);
-
-    z-index: 0;
-  }
-
-  .tab-pointer {
-    z-index: -1;
-    bottom: 0;
-    right: 50%;
-    transform: translate(50%, 40%) rotate(45deg);
+  .tab-active .tab-pointer {
+    display: none;
   }
 
   .tab-content {
     width: 100%;
     height: auto;
     padding: 2.4rem;
+    border: 1px solid #333;
+  }
+
+  .tab-content-date {
+    display: block;
+    margin-bottom: 1.6rem;
   }
 
   .tab-content-subjects {
@@ -2501,20 +2469,38 @@ body.dark .download-btn:hover {
   }
 
   .tab-active {
-    background-color: #297a4a;
+    color: #000;
+
     z-index: 100;
-    height: 7.3rem;
-    border: none;
+    height: 4.9rem;
+    border-bottom: none;
+    border-top: 8px solid #297a4a;
   }
 
-  .tab-active .tab-ed-name,
-  .tab-active .tab-ed-date {
+  .body-education.dark .tab-active {
+    border-top: 8px solid var(--neon);
+  }
+
+  .tab-active:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .tab-active .tab-ed-name {
     display: initial;
   }
 
   .skills-list {
     width: 100%;
     gap: 2rem;
+  }
+
+  .body-education.dark .tab {
+    background-color: #aaa;
+  }
+
+  .body-education.dark .tab-active {
+    background-color: #495057;
   }
 }
 
@@ -2523,12 +2509,16 @@ body.dark .download-btn:hover {
 /* ****************************************************** */
 
 @media (max-width: 31.25em) {
-  .logo {
-    display: none;
+  .tab {
+    font-size: 1.2rem;
   }
 
   .section-title {
     font-size: 3rem;
+  }
+
+  .tab-content h2 {
+    font-size: 2.4rem;
   }
 }
 
@@ -2543,67 +2533,10 @@ body.dark .download-btn:hover {
   }
 
   .tab {
-    font-size: 1.4rem;
-  }
-}
-
-/* ****************************************************** */
-/* 475 px *********************************************** */
-/* ****************************************************** */
-
-/* @media (max-width: 29.6875em) {
-  .school-top:not(.school-top--heading) {
-    display: block;
   }
 
-  .schools-heading {
-    text-align: center;
-  }
-
-  .attend-date {
-    display: block;
-    color: var(--green);
-    margin-bottom: 1rem;
-  }
-
-  .school-name {
-    margin-bottom: 0.4rem;
-  }
-
-  .logo-chas,
-  .logo-occ,
-  .logo-psu {
-    display: none;
-  }
-
-  .school-accordion {
-    padding-left: 1rem;
-  }
-
-  .school-accordion h4 {
-    margin: 0 0 1rem 0;
-  }
-
-  .school-accordion .education-ul {
-    margin-left: 1rem;
-  }
-} */
-
-/* ****************************************************** */
-/* 375 px *********************************************** */
-/* ****************************************************** */
-
-@media (max-width: 23.4375em) {
-  .school-description {
-    font-size: 1.4rem;
-  }
-
-  .skills-list--skill {
-    font-size: 1.4rem;
-  }
-
-  .skills-list-background {
-    height: 1.4rem;
+  .tab-content-ed h2 {
+    font-size: 2rem;
   }
 }
 
