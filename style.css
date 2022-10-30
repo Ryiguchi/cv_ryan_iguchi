@@ -125,7 +125,7 @@ nav ul {
   background-color: rgba(255, 255, 255, 0.97);
 
   height: 10rem;
-  padding: 0 9.6rem 0 3.2rem;
+  padding: 0 3.2rem 0 3.2rem;
 
   transition: all 0.3s linear;
 }
@@ -169,10 +169,6 @@ nav ul {
 
 .mobile-nav--icon {
   display: none;
-  position: absolute;
-  left: 3rem;
-  top: 1.7rem;
-
   height: 4rem;
   width: 4rem;
   cursor: pointer;
@@ -182,12 +178,11 @@ nav ul {
   position: absolute;
   top: 8rem;
   left: 0;
-  z-index: 100;
-
+  z-index: 1000;
   height: 100vh;
   width: 15rem;
 
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: #fff;
 }
 
 .mobil-nav--list {
@@ -261,7 +256,7 @@ footer {
 /* HEADER-FOOTER DARK MODE************************************** */
 
 body.dark .header {
-  background: rgba(0, 0, 0, 0.85);
+  background: #000;
 }
 
 body.dark .header-title,
@@ -278,17 +273,12 @@ body.dark header a {
 
 body.dark .mobile-nav,
 body.dark footer {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #000;
   color: #aaa;
 }
 
 body.dark .mobile-nav--icon {
   color: var(--neon);
-}
-
-body.dark .dark-mode-outer {
-  background: #fff;
-  border: 2px solid #000;
 }
 
 body.dark .dark-mode-inner,
@@ -297,7 +287,7 @@ body.dark .header-square {
 }
 
 body.dark .dark-mode-inner {
-  transform: translateX(1.3rem);
+  transform: translateX(2rem);
 }
 body.dark .sun-icon {
   display: initial;
@@ -323,10 +313,11 @@ body.dark .main {
   justify-content: flex-start;
   border: 2px solid #ccc;
   background: #333;
-  width: 4rem;
-  height: 2rem;
+  width: 6rem;
+  height: 3rem;
   border-radius: 22px;
   cursor: pointer;
+  padding: 2px;
 }
 
 .dark-mode-inner {
@@ -334,8 +325,8 @@ body.dark .main {
   justify-content: center;
   align-items: center;
   background-color: var(--green);
-  width: 2rem;
-  height: 1.3rem;
+  width: 3rem;
+  height: 2rem;
   border-radius: 35px;
   cursor: pointer;
   transition: all 0.3s linear;
@@ -390,10 +381,6 @@ body.dark .main {
 @media (max-width: 56.25em) {
   /* HEADER ********************************************* */
 
-  .mobile-nav--checkbox {
-    display: initial;
-  }
-
   .mobile-nav--icon {
     display: initial;
   }
@@ -437,11 +424,6 @@ body.dark .main {
 @media (max-width: 46.25em) {
   /* HEADER ********************************************* */
 
-  .mobile-nav--icon {
-    top: 1rem;
-    left: 1.6rem;
-  }
-
   .header {
     padding: 1rem 3.2rem 1rem 3.2rem;
   }
@@ -461,9 +443,9 @@ body.dark .main {
     padding-left: 2rem;
   }
 
-  .mobile-nav--checkbox {
-    top: 0.4rem;
-    left: 1.4rem;
+  .dark-mode-outer,
+  .mobile-nav--icon {
+    transform: translateY(-1rem);
   }
 
   .header-left {
@@ -526,11 +508,6 @@ body.dark .main {
 @media (max-width: 36.25em) {
   /* HEADER ********************************************* */
 
-  .mobile-nav--icon {
-    top: 0.8rem;
-    left: 1.6rem;
-  }
-
   .header-left {
     flex-direction: column;
     align-items: flex-start;
@@ -539,10 +516,6 @@ body.dark .main {
 
   .header-name {
     font-size: 2.4rem;
-  }
-
-  .slash {
-    display: none;
   }
 
   .header-title {
@@ -578,6 +551,9 @@ body.dark .main {
 /* ****************************************************** */
 
 @media (max-width: 26.25em) {
+  .header {
+    padding: 1rem 2rem;
+  }
   .header-title {
     font-size: 1.4rem;
   }
@@ -613,6 +589,25 @@ body.dark .main {
   .right-footer--social-link .social-icon {
     height: 1.4rem;
     width: 1.4rem;
+  }
+}
+
+/* ****************************************************** */
+/* 375px ************************************************** */
+/* ****************************************************** */
+
+@media (max-width: 23.44em) {
+  header .header-square {
+    height: 2rem !important;
+    width: 2rem !important;
+  }
+
+  .header-name {
+    font-size: 2rem;
+  }
+
+  .header-title {
+    font-size: 1.2rem;
   }
 }
 
@@ -1959,7 +1954,6 @@ details {
 }
 
 .tab {
-  z-index: 1000;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1968,7 +1962,6 @@ details {
 
   background-color: rgba(255, 255, 255, 0.5);
   padding: 1rem 2rem;
-  transition: all 0.3s;
 }
 
 .tab:hover {
