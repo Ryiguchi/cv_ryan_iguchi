@@ -1,6 +1,8 @@
 :root {
   --green: #297a4a;
   --neon: #89be9e;
+  --sm-box: -0.3rem 0.3rem 1rem rgba(0, 0, 0, 0.15);
+  --lg-box: -1.5rem 1.5rem 1.5rem rgba(0, 0, 0, 0.15);
 }
 
 /* ****************************************************** */
@@ -8,6 +10,7 @@
 /* UNIVERSAL********************************************* */
 /* ****************************************************** */
 /* ****************************************************** */
+
 * {
   margin: 0;
   padding: 0;
@@ -55,16 +58,6 @@ a:hover,
 a:active {
   color: var(--green);
 }
-
-/* .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-} */
 
 /*REUSABLE*********************************************** */
 
@@ -1899,7 +1892,7 @@ details {
   padding: 0.8rem;
   width: 18rem;
   background-color: #fff;
-  box-shadow: inset 1px 1px 0 #555, inset -1px -1px 0 #555;
+  box-shadow: inset 1px 1px 0 #555, inset -1px -1px 0 #555, var(--sm-box);
 }
 
 .nav-section a:hover .scroll-icon,
@@ -1932,6 +1925,7 @@ details {
   flex-direction: column;
   gap: 3px;
   width: 75%;
+  box-shadow: var(--lg-box);
 }
 
 .tabs-container-outer {
@@ -1986,6 +1980,7 @@ details {
   border-top: 1px solid #ddd;
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+  box-shadow: var(--lg-box);
 }
 
 .tab-content-ed {
