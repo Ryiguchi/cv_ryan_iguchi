@@ -1130,7 +1130,7 @@ body.dark .main {
     border-radius: 12px;
   }
 
-  body.dark .hero-card-right {
+  .body-about.dark .hero-card-right {
     background-color: #495057;
   }
 
@@ -2717,6 +2717,7 @@ details {
 }
 
 .img-box {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2749,6 +2750,17 @@ details {
 
 .project-desktop .project-img {
   width: 100%;
+}
+
+.img-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -10%;
+  z-index: 10;
+  width: 120%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .projects-h1 {
@@ -2904,6 +2916,7 @@ details {
   width: 100%;
   transition: all 0.3s;
 }
+
 .more-modal a:hover,
 .more-modal a:active {
   background-color: rgba(255, 255, 255, 0.1);
@@ -2927,23 +2940,78 @@ details {
 /* ****************************************************** */
 /* ****************************************************** */
 
-body.dark .slide-front {
-  background-color: #495057;
+.body-projects.dark .project {
+  background: #000;
   color: #aaa;
 }
 
-body.dark .more-btn {
+.body-projects.dark .img-overlay {
+  display: initial;
+}
+
+.body-projects.dark p {
+  color: #aaa;
+}
+
+.body-projects.dark .arrow-icon,
+.body-projects.dark h1 {
   color: var(--neon);
 }
 
-body.dark .arrow-left-icon,
-body.dark .arrow-right-icon,
-body.dark .projects-h1 {
-  color: var(--neon);
+.body-projects.dark .pagination .active-page {
+  background-color: var(--neon);
+  color: #000;
 }
 
-body.dark .more-modal {
+.body-projects.dark .more-btn,
+.body-projects.dark .pagination li {
+  background-color: #000;
+  color: #aaa;
+  /* border: 1px solid #aaa; */
+  box-shadow: inset 1px 1px 0 #aaa, inset -1px -1px 0 #aaa,
+    inset -1px 1px 0 #aaa, inset 1px -1px 0 #aaa;
+}
+
+.body-projects.dark .more-btn:hover,
+.body-projects.dark .pagination li:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #000;
+  box-shadow: none;
+}
+
+.body-projects.dark .more-modal {
   background-color: #495057;
+}
+.body-projects.dark .more-modal h2,
+.body-projects.dark .more-modal h4,
+.body-projects.dark .more-modal .close-icon {
+  color: var(--neon);
+}
+
+.body-projects.dark .more-btn {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #000;
+}
+
+.body-projects.dark .more-btn:hover {
+  background-color: #000;
+  color: #aaa;
+  box-shadow: inset 1px 1px 0 #aaa, inset -1px -1px 0 #aaa,
+    inset -1px 1px 0 #aaa, inset 1px -1px 0 #aaa;
+}
+
+.body-projects.dark .more-modal a:link,
+.body-projects.dark .more-modal a:visited {
+  background-color: #000;
+  color: #aaa;
+  box-shadow: inset 1px 1px 0 #aaa, inset -1px -1px 0 #aaa,
+    inset -1px 1px 0 #aaa, inset 1px -1px 0 #aaa;
+}
+
+.body-projects.dark .more-modal a:hover,
+.body-projects.dark .more-modal a:active {
+  background-color: #aaa;
+  color: #000;
 }
 
 /* ****************************************************** */
@@ -3021,10 +3089,6 @@ body.dark .more-modal {
 
   .project-mobile .project-card-text-box {
     width: 50%;
-  }
-
-  .project-mobile .img-box {
-    width: 30%;
   }
 
   .more-modal {
