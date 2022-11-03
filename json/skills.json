@@ -1,0 +1,67 @@
+{
+  "skills": [
+    {
+      "category": "Languages",
+      "subjects": [
+        {
+          "name": "English",
+          "proficeincy": 100
+        },
+        {
+          "name": "Swedish",
+          "proficeincy": 60
+        }
+      ]
+    },
+    {
+      "category": "Programming",
+      "subjects": [
+        {
+          "name": "HTML",
+          "proficeincy": 80
+        },
+        {
+          "name": "CSS",
+          "proficeincy": 80
+        },
+        {
+          "name": "JavaScpipt",
+          "proficeincy": 80
+        },
+        {
+          "name": "Java",
+          "proficeincy": 50
+        },
+        {
+          "name": "C#",
+          "proficeincy": 40
+        }
+      ]
+    },
+    {
+      "category": "Software",
+      "subjects": [
+        {
+          "name": "VS Code",
+          "proficeincy": 75
+        },
+        {
+          "name": "GIT",
+          "proficeincy": 50
+        },
+        {
+          "name": "Notion",
+          "proficeincy": 50
+        },
+        {
+          "name": "Figma",
+          "proficeincy": 40
+        },
+        {
+          "name": "Jira",
+          "proficeincy": 40
+        }
+      ]
+    }
+  ]
+}

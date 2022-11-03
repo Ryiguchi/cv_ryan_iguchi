@@ -1,0 +1,14 @@
+{
+  "certificates": [
+    {
+      "courseName": "Build Responsive Real-World Websites with HTML and CSS",
+      "hours": 37.5,
+      "certificateType": "Certificate of Completion"
+    },
+    {
+      "courseName": "The Complete JavaScript Course 2022: From Zero to Expert!",
+      "hours": 69,
+      "certificateType": "Certificate of Completion"
+    }
+  ]
+}

@@ -825,6 +825,7 @@ body.dark .main {
 
   border-radius: 0 0 0 12px;
 }
+
 /* HERO RIGHT ******************************************* */
 
 .hero-card-right {
@@ -1108,6 +1109,7 @@ body.dark .main {
     width: 1.8rem;
     height: 1.8rem;
   }
+
   /* BOTTOM HERO CARD *********************************** */
 
   .hero-card-right {
@@ -2520,9 +2522,6 @@ details {
   .schools,
   .skills {
     width: 90vw;
-  }
-
-  .tab {
   }
 
   .tab-content-ed h2 {

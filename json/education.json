@@ -1,0 +1,143 @@
+[
+  {
+    "education": [
+      {
+        "name": {
+          "nameFull": "Chas Academy",
+          "nameTab": "Chas Academy"
+        },
+        "date": "2022-Present",
+        "location": "Stockholm, Sweden",
+        "Major": "Full Stack JavaScript",
+        "description": "Curently enrolled in the full stack JavaScript program ChasAcademy is part of the Chas Visual Management Group, which is one Swedens leading IT-consulting companies.",
+        "subjects": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "React",
+          "Angular",
+          "Vue",
+          "Node JS",
+          "SLQ",
+          "Agile"
+        ]
+      },
+      {
+        "name": {
+          "nameFull": "Ocean County College",
+          "nameTab": "Ocean County"
+        },
+        "date": "1998-2000",
+        "location": "New Jersey, USA",
+        "Major": "Business",
+        "description": "Community college in Ocean County, New Jersey. Majored in business in a 2 year associated degree program.",
+        "subjects": [
+          "Accounting",
+          "Macro Economics",
+          "Micro Economics",
+          "Business Law",
+          "Abnormal Psychology",
+          "Investments"
+        ]
+      },
+      {
+        "name": {
+          "nameFull": "Penn State University",
+          "nameTab": "PennState"
+        },
+        "date": "1996-1998",
+        "location": "Pennsylvania, USA",
+        "Major": "Computer Science",
+        "description": "Initially accepted into the computer engineering program but pivoted to computer science after 1 year. Studied at the Schuylkill campus.",
+        "subjects": [
+          "C+",
+          "Calculus",
+          "Physics",
+          "Psychology",
+          "Electrical Engineering"
+        ]
+      }
+    ]
+  },
+  {
+    "certificates": [
+      {
+        "courseName": "Build Responsive Real-World Websites with HTML and CSS",
+        "hours": 37.5,
+        "certificateType": "Certificate of Completion"
+      },
+      {
+        "courseName": "The Complete JavaScript Course 2022: From Zero to Expert!",
+        "hours": 69,
+        "certificateType": "Certificate of Completion"
+      }
+    ]
+  },
+  {
+    "skills": [
+      {
+        "category": "Languages",
+        "subjects": [
+          {
+            "name": "English",
+            "proficeincy": 100
+          },
+          {
+            "name": "Swedish",
+            "proficeincy": 60
+          }
+        ]
+      },
+      {
+        "category": "Programming",
+        "subjects": [
+          {
+            "name": "HTML",
+            "proficeincy": 80
+          },
+          {
+            "name": "CSS",
+            "proficeincy": 80
+          },
+          {
+            "name": "JavaScpipt",
+            "proficeincy": 80
+          },
+          {
+            "name": "Java",
+            "proficeincy": 50
+          },
+          {
+            "name": "C#",
+            "proficeincy": 40
+          }
+        ]
+      },
+      {
+        "category": "Software",
+        "subjects": [
+          {
+            "name": "VS Code",
+            "proficeincy": 75
+          },
+          {
+            "name": "GIT",
+            "proficeincy": 50
+          },
+          {
+            "name": "Notion",
+            "proficeincy": 50
+          },
+          {
+            "name": "Figma",
+            "proficeincy": 40
+          },
+          {
+            "name": "Jira",
+            "proficeincy": 40
+          }
+        ]
+      }
+    ]
+  }
+]
