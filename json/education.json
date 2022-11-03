@@ -8,7 +8,7 @@
         },
         "date": "2022-Present",
         "location": "Stockholm, Sweden",
-        "Major": "Full Stack JavaScript",
+        "major": "Full Stack JavaScript",
         "description": "Curently enrolled in the full stack JavaScript program ChasAcademy is part of the Chas Visual Management Group, which is one Swedens leading IT-consulting companies.",
         "subjects": [
           "HTML",
@@ -20,7 +20,12 @@
           "Node JS",
           "SLQ",
           "Agile"
-        ]
+        ],
+        "img": {
+          "src": "img/img-education/chas.svg",
+          "alt": "Chas Academy's Logo",
+          "class": "chas"
+        }
       },
       {
         "name": {
@@ -29,7 +34,7 @@
         },
         "date": "1998-2000",
         "location": "New Jersey, USA",
-        "Major": "Business",
+        "major": "Business",
         "description": "Community college in Ocean County, New Jersey. Majored in business in a 2 year associated degree program.",
         "subjects": [
           "Accounting",
@@ -38,7 +43,12 @@
           "Business Law",
           "Abnormal Psychology",
           "Investments"
-        ]
+        ],
+        "img": {
+          "src": "img/img-education/occ.png",
+          "alt": "Ocean County College's Logo",
+          "class": "occ"
+        }
       },
       {
         "name": {
@@ -47,7 +57,7 @@
         },
         "date": "1996-1998",
         "location": "Pennsylvania, USA",
-        "Major": "Computer Science",
+        "major": "Computer Science",
         "description": "Initially accepted into the computer engineering program but pivoted to computer science after 1 year. Studied at the Schuylkill campus.",
         "subjects": [
           "C+",
@@ -55,7 +65,12 @@
           "Physics",
           "Psychology",
           "Electrical Engineering"
-        ]
+        ],
+        "img": {
+          "src": "img/img-education/psu.png",
+          "alt": "PennState's Logo",
+          "class": "psu"
+        }
       }
     ]
   },
@@ -80,11 +95,13 @@
         "subjects": [
           {
             "name": "English",
-            "proficeincy": 100
+            "proficeincy": 100,
+            "print": "English: Expert"
           },
           {
             "name": "Swedish",
-            "proficeincy": 60
+            "proficeincy": 60,
+            "print": "Swedish: Intermediate"
           }
         ]
       },
@@ -93,23 +110,28 @@
         "subjects": [
           {
             "name": "HTML",
-            "proficeincy": 80
+            "proficeincy": 80,
+            "print": "HTML: Proficient"
           },
           {
             "name": "CSS",
-            "proficeincy": 80
+            "proficeincy": 80,
+            "print": "CSS: Proficient"
           },
           {
             "name": "JavaScpipt",
-            "proficeincy": 80
+            "proficeincy": 80,
+            "print": "JS: Intermediate"
           },
           {
             "name": "Java",
-            "proficeincy": 50
+            "proficeincy": 50,
+            "print": "Java: Intermediate"
           },
           {
             "name": "C#",
-            "proficeincy": 40
+            "proficeincy": 40,
+            "print": "C#: Intermediate"
           }
         ]
       },
@@ -118,23 +140,28 @@
         "subjects": [
           {
             "name": "VS Code",
-            "proficeincy": 75
+            "proficeincy": 75,
+            "print": "VS Code: Proficient"
           },
           {
             "name": "GIT",
-            "proficeincy": 50
+            "proficeincy": 50,
+            "print": "GIT: Intermediate"
           },
           {
             "name": "Notion",
-            "proficeincy": 50
+            "proficeincy": 50,
+            "print": "Notion: Intermediate"
           },
           {
             "name": "Figma",
-            "proficeincy": 40
+            "proficeincy": 40,
+            "print": "Figma: Proficient"
           },
           {
             "name": "Jira",
-            "proficeincy": 40
+            "proficeincy": 40,
+            "print": "Jira: Intermediate"
           }
         ]
       }

@@ -1,10 +1,56 @@
 {
   "jobs": [
     {
+      "name": "Oleary's Sportsbar",
+      "date": "2006 - 2007",
+      "title": "Head Chef",
+      "description": "Managed and ran the kitchen for a busy restaurant.",
+      "responsibilities": [
+        "Menu creation and updating",
+        "Ordering all the supplies for the restaurant",
+        "Employee training and schedule management",
+        "Preparations"
+      ],
+      "className": "olearys",
+      "side": "left"
+    },
+    {
+      "name": "Jimmy's Steakhouse",
+      "date": "2007 - 2009",
+      "title": "Sous Chef",
+      "description": "Worked in the kitchen preparing and a la carte on a coal grill.",
+      "responsibilities": ["Preparations", "Al a carte menu", "Coal Grill"],
+      "className": "jimmys",
+      "side": "right"
+    },
+    {
+      "name": "Offsides Sportsbar",
+      "date": "2009 - 2021",
+      "title": "Head Chef",
+      "description": "Managed and ran the kitchen from the beginning. Helped it become one of the most popular restaurants in Solna.",
+      "responsibilities": [
+        "Menu creation and updating",
+        "Ordering all the supplies for the restaurant",
+        "Employee training and schedule management",
+        "Preparations",
+        "Catering for larger parties"
+      ],
+      "className": "offsides",
+      "side": "left"
+    },
+    {
       "name": "Wine Tasting and Pairing",
       "date": "2020 - present",
       "title": "Partner",
-      "description": "Organize and host private wine tasting and food pairing events with my partner. We choose the best affordable wines from Systembolaget and pair them with homemade international dishes."
+      "description": "Organize and host private wine tasting and food pairing events with my partner. We choose the best affordable wines from Systembolaget and pair them with homemade international dishes.",
+      "responsibilities": [
+        "Wine and food pairing",
+        "Organizing the events",
+        "Cooking all the food on location",
+        "Educating the guests on the wine and the food pairing"
+      ],
+      "className": "wine",
+      "side": "right"
     }
   ]
 }
