@@ -45,7 +45,6 @@ const loadFunctionality = function () {
 
     // CREATES THE PAGINATION BASED ON NUMBER OF SLIDES
     const createPagination = function () {
-      console.log(slides);
       slides.forEach((slide, i) => {
         pagList.insertAdjacentHTML(
           'beforeend',
@@ -76,7 +75,6 @@ const loadFunctionality = function () {
       changePageNum(1);
       goToSlide(1);
       removeHidden();
-      console.log('hi');
     };
 
     //  GOES TO NEXT / PREVIOUS SLIDE OR TO BEGINNING / END
@@ -99,7 +97,6 @@ const loadFunctionality = function () {
     };
 
     const calcSwipe = function (start, end) {
-      console.log(start, end);
       if (start - end > 10) nextSlide();
       if (start - end < -10) previousSlide();
       start = end = 0;
@@ -248,6 +245,12 @@ const loadData = function () {
     slider.insertAdjacentHTML('afterend', htmlModal);
   };
 
+  const errorMessage = function (err) {
+    slider.classList.add('hidden');
+    const errorEl = document.querySelector('.error');
+    errorEl.classList.remove('hidden');
+    errorEl.textContent = err.message;
+  };
   /////////////////////////////////////////////////
   // Get Data /////////////////////////////////////
   /////////////////////////////////////////////////
@@ -289,7 +292,7 @@ const loadData = function () {
       createSlides(orderedData);
       loadFunctionality();
     } catch (err) {
-      console.log(err);
+      errorMessage(err);
     }
   };
 
@@ -297,3 +300,10 @@ const loadData = function () {
 };
 
 loadData();
+
+// spinner3{
+//     border-top: 3px solid rgba($black, .5);
+//     border-right: 3px solid transparent;
+//     border-radius: 50%;
+//     animation: rotation .8s linear infinite;
+//   }
