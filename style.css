@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;
 
   color: #555;
@@ -1406,7 +1406,7 @@ body.dark .main {
       rgba(34, 34, 34, 0.7),
       rgba(34, 34, 34, 0.7)
     ),
-    url("img/img-resume/background-resume.webp");
+    url('img/img-resume/background-resume.webp');
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -1459,7 +1459,7 @@ body.dark .main {
 
 .job-right .date::before,
 .job-left .date::before {
-  content: " ";
+  content: ' ';
   position: absolute;
   right: 51%;
   transform: translateX(50%);
@@ -1615,7 +1615,7 @@ details {
       rgba(34, 34, 34, 0.8),
       rgba(34, 34, 34, 0.8)
     ),
-    url("img/img-resume/background-resume.webp");
+    url('img/img-resume/background-resume.webp');
 }
 
 .body-resume.dark .company {
@@ -2604,8 +2604,30 @@ details {
 /* ****************************************************** */
 /* ****************************************************** */
 
+.container-projects main {
+  background: linear-gradient(to right, #a5944a, 25%, #80640c);
+}
+
 .container-projects {
   max-width: none;
+}
+
+.spinner {
+  height: 3rem;
+  width: 3rem;
+  border-top: 3px solid #000;
+  border-right: 3px solid transparent;
+  border-radius: 50%;
+  animation: rotation 0.8s linear infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* MAIN CAROUSEL SIDE *********************************** */
@@ -2615,6 +2637,8 @@ details {
   /* overflow: hidden; */
   width: 100vw;
   height: 100vh;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 .project {
@@ -3180,7 +3204,7 @@ details {
       rgba(34, 34, 34, 0.6),
       rgba(34, 34, 34, 0.6)
     ),
-    url("img/img-contact/ryan.webp");
+    url('img/img-contact/ryan.webp');
   background-size: cover;
   background-position: center;
   border-radius: 6px 0 0 6px;
@@ -3454,7 +3478,7 @@ body.dark .contact-info-link span {
         rgba(34, 34, 34, 0.6),
         rgba(34, 34, 34, 0.6)
       ),
-      url("img/img-contact/ryan.webp");
+      url('img/img-contact/ryan.webp');
     background-size: cover;
     background-position: center;
 
@@ -3573,10 +3597,11 @@ body.dark .contact-info-link span {
   opacity: 0;
 }
 
-.error {
+.error-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
   background-color: #fff;
   border-radius: 5px;
   border: 2px solid red;
@@ -3584,7 +3609,7 @@ body.dark .contact-info-link span {
 
   width: 80%;
   height: 10rem;
-  margin: 8rem auto;
+  margin: 40vh auto;
 }
 
 .hidden {

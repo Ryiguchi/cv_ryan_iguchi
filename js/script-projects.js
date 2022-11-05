@@ -1,8 +1,12 @@
 'use strict';
 
 const slider = document.querySelector('.slider');
+const errorEl = document.querySelector('.error-container');
+const errorText = document.querySelector('.error-text');
+const spinner = document.querySelector('.spinner');
 
 const loadFunctionality = function () {
+  console.log('hi');
   //////////////////////////////////////////////
   // SELECTORS /////////////////////////////////
   //////////////////////////////////////////////
@@ -26,7 +30,7 @@ const loadFunctionality = function () {
   let curSlide = 1,
     start,
     end;
-  const maxSlide = slides.length;
+  const maxSlide = +slides.length;
 
   //////////////////////////////////////////////
   // FUNCTIONS /////////////////////////////////
@@ -75,11 +79,13 @@ const loadFunctionality = function () {
       changePageNum(1);
       goToSlide(1);
       removeHidden();
+      fadeIn();
     };
 
     //  GOES TO NEXT / PREVIOUS SLIDE OR TO BEGINNING / END
     const nextSlide = function () {
       fullScreen();
+      console.log(maxSlide, curSlide);
       curSlide === maxSlide ? (curSlide = 1) : curSlide++;
       goToSlide(curSlide);
       changePageNum(curSlide);
@@ -102,6 +108,11 @@ const loadFunctionality = function () {
       start = end = 0;
     };
 
+    const fadeIn = function () {
+      errorEl.classList.add('hidden');
+      slider.style.opacity = 1;
+    };
+
     // EVENT LISTENERS
 
     rightArrow.addEventListener('click', nextSlide),
@@ -115,10 +126,11 @@ const loadFunctionality = function () {
     pagList.addEventListener('click', e => {
       if (!e.target.classList.contains('page-num')) return;
       const { slide } = e.target.dataset;
-      curSlide = slide;
+      curSlide = +slide;
+      console.log(curSlide);
       fullScreen();
-      goToSlide(slide);
-      changePageNum(slide);
+      goToSlide(curSlide);
+      changePageNum(curSlide);
     });
 
     slider.addEventListener('touchstart', e => {
@@ -140,7 +152,8 @@ const loadFunctionality = function () {
   // MODAL POP-UP
 
   const openModal = function () {
-    document.querySelector(`.modal-${curSlide}`).style.top = '50%';
+    document.querySelector(`.modal-${curSlide}`).style.top =
+      'calc(50% + 10rem)';
     overlay.classList.remove('hidden');
   };
 
@@ -174,13 +187,15 @@ const loadData = function () {
   // Insert Data into DOM /////////////////////////
   /////////////////////////////////////////////////
 
+  errorText.textContent = 'Loading content . . .';
+
   const createSlides = function (projects) {
     let htmlSlide = '';
     let htmlModal = '';
     projects.forEach((project, i) => {
       htmlSlide += `
       <article
-        class="project project-${project.type} project-${project.className}"
+        class="project project-${project.type} project-${project.className} hidden"
       >
         <div class="project-card-text-box">
           <!-- text -->
@@ -197,7 +212,7 @@ const loadData = function () {
         <!-- image -->
         <div class="img-box">
           <img
-            src="${project.img}"
+            src=""
             alt="${project.alt}"
             class="project-img"
           />
@@ -246,10 +261,8 @@ const loadData = function () {
   };
 
   const errorMessage = function (err) {
-    slider.classList.add('hidden');
-    const errorEl = document.querySelector('.error');
-    errorEl.classList.remove('hidden');
-    errorEl.textContent = err.message;
+    spinner.classList.add('hidden');
+    errorText.textContent = err.message;
   };
   /////////////////////////////////////////////////
   // Get Data /////////////////////////////////////
@@ -266,6 +279,25 @@ const loadData = function () {
     } catch (err) {
       errorMessage(err);
     }
+  };
+
+  const loadAllImgs = function (projects) {
+    const allImgElements = document.querySelectorAll('.project-img');
+    allImgElements.forEach((el, i) => {
+      if (i !== 0) el.src = projects[i].img;
+    });
+  };
+
+  const loadImg1 = function (img) {
+    const el = document.querySelector('.project-img');
+    return new Promise((resolve, reject) => {
+      el.src = img;
+
+      el.addEventListener('load', () => resolve());
+      el.addEventListener('error', () =>
+        reject(new Error('💥 There was a problem loading the images 💥'))
+      );
+    });
   };
 
   // get all project data
@@ -288,8 +320,10 @@ const loadData = function () {
           'https://api.github.com/repos/Ryiguchi/guess-a-number-game/contents/json/cv-data.json?ref=main'
         ),
       ]);
-      const orderedData = allData.flat().sort((a, b) => a.num - b.num);
-      createSlides(orderedData);
+      const projects = allData.flat().sort((a, b) => a.num - b.num);
+      createSlides(projects);
+      await loadImg1(projects[0].img);
+      loadAllImgs(projects);
       loadFunctionality();
     } catch (err) {
       errorMessage(err);
@@ -301,9 +335,4 @@ const loadData = function () {
 
 loadData();
 
-// spinner3{
-//     border-top: 3px solid rgba($black, .5);
-//     border-right: 3px solid transparent;
-//     border-radius: 50%;
-//     animation: rotation .8s linear infinite;
-//   }
+//
