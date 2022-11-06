@@ -272,6 +272,8 @@ const loadData = function () {
   const fetchData = async function (url) {
     try {
       const res = await fetch(url);
+      if (!res.ok)
+        throw new Error('💥 There was a problem fetching the data 💥');
       const dataEncrypted = await res.json();
       const dataDecrypted = atob(dataEncrypted.content);
       const projectData = JSON.parse(dataDecrypted);
