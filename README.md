@@ -1,6 +1,11 @@
-# my-cv
+# CV-website - Ryan Iguchi
 
-THIS IS NOT A REAL CV!!!!
+## Created by Ryan Iguchi
 
-This was created as a school project for learning purposes so not all of the information is 100% accurate.
-All the functionality is done with CSS, not JS.
+### Description
+
+This is my CV, which was started as a school project for learning purposes.
+
+### URL
+
+[Visit my CV-website](https://ryiguchi.github.io/cv-javascript/index.html)
