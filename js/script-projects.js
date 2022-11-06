@@ -4,9 +4,9 @@ const slider = document.querySelector('.slider');
 const errorEl = document.querySelector('.error-container');
 const errorText = document.querySelector('.error-text');
 const spinner = document.querySelector('.spinner');
+const arrows = document.querySelectorAll('.arrow-icon');
 
 const loadFunctionality = function () {
-  console.log('hi');
   //////////////////////////////////////////////
   // SELECTORS /////////////////////////////////
   //////////////////////////////////////////////
@@ -284,10 +284,18 @@ const loadData = function () {
   };
 
   const loadAllImgs = function (projects) {
-    const allImgElements = document.querySelectorAll('.project-img');
-    allImgElements.forEach((el, i) => {
-      if (i !== 0) el.src = projects[i].img;
+    const [...allImgElements] = document.querySelectorAll('.project-img');
+    const promises = allImgElements.map(async (el, i) => {
+      if (i !== 0)
+        await new Promise((resolve, reject) => {
+          el.src = projects[i].img;
+          el.addEventListener('load', () => resolve());
+          el.addEventListener('error', () =>
+            reject(new Error('💥 There was a problem loading the images 💥'))
+          );
+        });
     });
+    return promises;
   };
 
   const loadImg1 = function (img) {
@@ -300,6 +308,11 @@ const loadData = function () {
         reject(new Error('💥 There was a problem loading the images 💥'))
       );
     });
+  };
+
+  const showArrows = function () {
+    console.log('arrow');
+    arrows.forEach(arr => arr.classList.remove('hidden'));
   };
 
   // get all project data
@@ -322,11 +335,13 @@ const loadData = function () {
           'https://api.github.com/repos/Ryiguchi/guess-a-number-game/contents/json/cv-data.json?ref=main'
         ),
       ]);
+
       const projects = allData.flat().sort((a, b) => a.num - b.num);
       createSlides(projects);
       await loadImg1(projects[0].img);
-      loadAllImgs(projects);
       loadFunctionality();
+      await Promise.all(loadAllImgs(projects));
+      showArrows();
     } catch (err) {
       errorMessage(err);
     }
@@ -336,5 +351,3 @@ const loadData = function () {
 };
 
 loadData();
-
-//

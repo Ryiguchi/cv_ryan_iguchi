@@ -2,8 +2,11 @@
 // SELECTORS
 const h1 = document.querySelector('h1');
 const jobsContainer = document.querySelector('.experience');
-const errorEl = document.querySelector('.error');
+const errorEl = document.querySelector('.error-container');
+const errorText = document.querySelector('.error-text');
+const spinner = document.querySelector('.spinner');
 const containerInner = document.querySelector('.container-inner');
+const main = document.querySelector('main');
 
 //////////////////////////////////////////////////////////
 // PAGE FUNCTIONALITY  ///////////////////////////////////
@@ -32,6 +35,13 @@ const loadFunctionality = function () {
   jobSections.forEach(job => {
     !job.classList.contains('wine') && sectionObserver.observe(job);
   });
+
+  const showPage = function () {
+    errorEl.classList.add('hidden');
+    main.classList.remove('hidden');
+  };
+
+  showPage();
 };
 
 ////////////////////////////////////////////////////////////
@@ -39,6 +49,8 @@ const loadFunctionality = function () {
 ////////////////////////////////////////////////////////////
 
 const loadData = function () {
+  errorText.textContent = 'Loading content . . .';
+
   // Build and insert HTML for jobs
   const appendJobs = function (data) {
     data.forEach(job => {
@@ -73,9 +85,8 @@ const loadData = function () {
 
   // Display error
   const errorMessage = function (err) {
-    containerInner.classList.add('hidden');
-    errorEl.classList.remove('hidden');
-    errorEl.textContent = err.message;
+    spinner.classList.add('hidden');
+    errorText.textContent = err.message;
   };
 
   // Get job data and set observer
@@ -83,7 +94,7 @@ const loadData = function () {
     try {
       const res = await fetch('/cv-javascript/json/work.json');
       if (!res.ok)
-        throw new Error('💥 Sorry! There was a problem fetching the data! 💥');
+        throw new Error('💥 There was a problem fetching the data! 💥');
       const { jobs: data } = await res.json();
       appendJobs(data);
       loadFunctionality();

@@ -6,6 +6,10 @@ const tabsContainerSkill = document.querySelector('.tabs-container-skill');
 const skillsSection = document.querySelector('.skills');
 const tabsContainerOuter = document.querySelector('.tabs-container-outer');
 const tabContentUdemy = document.querySelector('.tab-content-header-udemy');
+const errorText = document.querySelector('.error-text');
+const errorEl = document.querySelector('.error-container');
+const spinner = document.querySelector('.spinner');
+const main = document.querySelector('main');
 
 //////////////////////////////////////////////////////////
 // PAGE FUNCTIONALITY  ///////////////////////////////////
@@ -49,6 +53,13 @@ const loadFunctionality = function () {
     const id = e.target.closest('a').getAttribute('href');
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   });
+
+  const showPage = function () {
+    errorEl.classList.add('hidden');
+    main.classList.remove('hidden');
+  };
+
+  showPage();
 };
 
 ////////////////////////////////////////////////////////////
@@ -56,6 +67,8 @@ const loadFunctionality = function () {
 ////////////////////////////////////////////////////////////
 
 const loadData = function () {
+  errorText.textContent = 'Loading content . . .';
+
   const createHtmlEd = function (schools) {
     let htmlTab = '';
     let htmlContent = '';
@@ -173,18 +186,15 @@ const loadData = function () {
   };
 
   const errorMessage = function (err) {
-    document.querySelector('.schools').classList.add('hidden');
-    document.querySelector('.skills').classList.add('hidden');
-    const errorEl = document.querySelector('.error');
-    errorEl.classList.remove('hidden');
+    spinner.classList.add('hidden');
     errorEl.textContent = err.message;
   };
 
   const fetchData = async function () {
     try {
-      const res = await fetch('/cv-javascript/json/education.json');
+      const res = await fetch('/json/education.json');
       if (!res.ok)
-        throw new Error('💥 There was a problem retrieving the data 💥');
+        throw new Error('💥 There was a problem loading the data 💥');
       const [{ education: edu }, { certificates: cert }, { skills }] =
         await res.json();
       createHtmlEd(edu);

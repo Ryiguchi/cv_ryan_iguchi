@@ -104,6 +104,21 @@ nav ul {
   text-transform: uppercase;
 }
 
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 2px solid red;
+  font-size: 2.4rem;
+  padding: 2rem 1rem;
+
+  width: 80%;
+  margin: 40vh auto;
+}
+
 /* ****************************************************** */
 /* ****************************************************** */
 /* ****************************************************** */
@@ -494,6 +509,13 @@ body.dark .main {
     font-size: 1.2rem;
   }
 }
+/* error container */
+
+.error-container {
+  font-size: 1.8rem;
+  width: 90%;
+  padding: 1rem;
+}
 
 /* ****************************************************** */
 /* 580px ************************************************ */
@@ -538,6 +560,12 @@ body.dark .main {
   .right-footer--social-nav {
     gap: 1.2rem;
   }
+}
+
+/* error container */
+
+.error-container {
+  font-size: 1.2rem;
 }
 
 /* ****************************************************** */
@@ -2804,6 +2832,7 @@ details {
 .arrow-left-icon {
   left: 2rem;
 }
+
 .arrow-right-icon {
   right: 2rem;
 }
@@ -3595,21 +3624,6 @@ body.dark .contact-info-link span {
 
 .hidden-section {
   opacity: 0;
-}
-
-.error-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 2px solid red;
-  font-size: 2.4rem;
-
-  width: 80%;
-  height: 10rem;
-  margin: 40vh auto;
 }
 
 .hidden {
