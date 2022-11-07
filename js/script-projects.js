@@ -4,7 +4,6 @@ const slider = document.querySelector('.slider');
 const errorEl = document.querySelector('.error-container');
 const errorText = document.querySelector('.error-text');
 const spinner = document.querySelector('.spinner');
-const arrows = document.querySelectorAll('.arrow-icon');
 
 const loadFunctionality = function () {
   //////////////////////////////////////////////
@@ -286,33 +285,15 @@ const loadData = function () {
   const loadAllImgs = function (projects) {
     const [...allImgElements] = document.querySelectorAll('.project-img');
     const promises = allImgElements.map(async (el, i) => {
-      if (i !== 0)
-        await new Promise((resolve, reject) => {
-          el.src = projects[i].img;
-          el.addEventListener('load', () => resolve());
-          el.addEventListener('error', () =>
-            reject(new Error('💥 There was a problem loading the images 💥'))
-          );
-        });
+      await new Promise((resolve, reject) => {
+        el.src = projects[i].img;
+        el.addEventListener('load', () => resolve());
+        el.addEventListener('error', () =>
+          reject(new Error('💥 There was a problem loading the images 💥'))
+        );
+      });
     });
     return promises;
-  };
-
-  const loadImg1 = function (img) {
-    const el = document.querySelector('.project-img');
-    return new Promise((resolve, reject) => {
-      el.src = img;
-
-      el.addEventListener('load', () => resolve());
-      el.addEventListener('error', () =>
-        reject(new Error('💥 There was a problem loading the images 💥'))
-      );
-    });
-  };
-
-  const showArrows = function () {
-    console.log('arrow');
-    arrows.forEach(arr => arr.classList.remove('hidden'));
   };
 
   // get all project data
@@ -338,10 +319,8 @@ const loadData = function () {
 
       const projects = allData.flat().sort((a, b) => a.num - b.num);
       createSlides(projects);
-      await loadImg1(projects[0].img);
-      loadFunctionality();
       await Promise.all(loadAllImgs(projects));
-      showArrows();
+      loadFunctionality();
     } catch (err) {
       errorMessage(err);
     }
