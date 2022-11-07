@@ -237,20 +237,20 @@ const loadData = function () {
             <p>
               ${project.modalText}
             </p>
-            <button class="btn btn-modal btn-${project.className}">
+            <div class="btn btn-modal btn-${project.className}">
               <a
                 href="${project.link}"
                 target="_blank"
                 >${project.type === 'Game' ? 'Play' : 'Visit'}</a
               >
-              </button>
-              <button class="btn btn-modal btn-${project.className}">
+              </div>
+              <div class="btn btn-modal btn-${project.className}">
               <a
               href="${project.gitHub}"
               target="_blank"
               >GitHub</a
               >
-              </button>
+              </div>
               </div>
               </aside>
               `;
