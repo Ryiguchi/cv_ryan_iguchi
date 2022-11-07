@@ -230,9 +230,9 @@ const loadData = function () {
               data-slide="${i + 1}"
             ></ion-icon>
 
-            <h4>Categogry: &nbsp &nbsp ${project.category}</h4>
+            <h4>Categogry: &nbsp &nbsp ${project.category}<br>
 
-            <h4>Tech used: &nbsp &nbsp ${project.tech}</h4>
+            Tech used: &nbsp &nbsp ${project.tech}</h4>
 
             <p>
               ${project.modalText}
