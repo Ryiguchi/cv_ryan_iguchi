@@ -2777,7 +2777,7 @@ details {
 }
 
 .project-mobile .project-img {
-  max-height: 100%;
+  height: 80vh;
 }
 
 .project-desktop .img-box {
@@ -2787,7 +2787,7 @@ details {
 }
 
 .project-desktop .project-img {
-  width: 100%;
+  width: 50vw;
 }
 
 .img-overlay {
@@ -3065,11 +3065,6 @@ details {
 @media (max-width: 75em) {
   .project-card-text-box {
     max-width: 40rem;
-  }
-
-  .project-desktop .img-box {
-    width: 100%;
-    min-width: 55%;
   }
 
   .more-modal {
