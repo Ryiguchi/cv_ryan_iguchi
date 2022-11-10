@@ -27,7 +27,7 @@ const loadFunctionality = function () {
   // --Intersection Observer
   const sectionObserver = new IntersectionObserver(revealJob, {
     root: null,
-    threshold: 0.8,
+    threshold: 1,
   });
 
   // --set up reveal effect on newly created elements
