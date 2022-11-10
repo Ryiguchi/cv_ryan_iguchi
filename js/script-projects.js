@@ -6,10 +6,7 @@ const errorText = document.querySelector('.error-text');
 const spinner = document.querySelector('.spinner');
 
 const loadFunctionality = function () {
-  //////////////////////////////////////////////
   // SELECTORS /////////////////////////////////
-  //////////////////////////////////////////////
-
   // --arrows / buttons
   const leftArrow = document.querySelector('.arrow-left-icon');
   const rightArrow = document.querySelector('.arrow-right-icon');
@@ -19,24 +16,15 @@ const loadFunctionality = function () {
   // --elements
   const slides = document.querySelectorAll('.project');
   const pagList = document.querySelector('.pagination-list');
-  const learnMoreModals = document.querySelectorAll('.more-modal');
   const overlay = document.querySelector('.overlay');
 
-  //////////////////////////////////////////////
   // VARIABLE DECLARATIONS /////////////////////
-  //////////////////////////////////////////////
-
-  let curSlide = 1,
-    start,
-    end;
+  let curSlide = 1;
   const maxSlide = +slides.length;
 
-  //////////////////////////////////////////////
   // FUNCTIONS /////////////////////////////////
-  //////////////////////////////////////////////
 
   // SLIDER
-
   const projectSlider = function () {
     // CHANGES SLIDE
     const goToSlide = function (slide) {
@@ -48,7 +36,7 @@ const loadFunctionality = function () {
 
     // CREATES THE PAGINATION BASED ON NUMBER OF SLIDES
     const createPagination = function () {
-      slides.forEach((slide, i) => {
+      slides.forEach((_, i) => {
         pagList.insertAdjacentHTML(
           'beforeend',
           `<li class="p-${i + 1} page-num" data-slide="${i + 1}">${i + 1}</li>`
@@ -78,13 +66,13 @@ const loadFunctionality = function () {
       changePageNum(1);
       goToSlide(1);
       removeHidden();
+      handleSwipe();
       fadeIn();
     };
 
     //  GOES TO NEXT / PREVIOUS SLIDE OR TO BEGINNING / END
     const nextSlide = function () {
       fullScreen();
-      console.log(maxSlide, curSlide);
       curSlide === maxSlide ? (curSlide = 1) : curSlide++;
       goToSlide(curSlide);
       changePageNum(curSlide);
@@ -101,9 +89,10 @@ const loadFunctionality = function () {
       slider.scrollIntoView({ behavior: 'smooth' });
     };
 
+    // Determines if the user swiped left or right
     const calcSwipe = function (start, end) {
-      if (start - end > 10) nextSlide();
-      if (start - end < -10) previousSlide();
+      if (start - end > 40) nextSlide();
+      if (start - end < -40) previousSlide();
       start = end = 0;
     };
 
@@ -114,34 +103,39 @@ const loadFunctionality = function () {
 
     // EVENT LISTENERS
 
+    // handle arrow icons
     rightArrow.addEventListener('click', nextSlide),
       leftArrow.addEventListener('click', previousSlide);
 
+    // handle arrow keys
     document.addEventListener('keydown', e => {
-      e.key === 'ArrowRight' && nextSlide();
-      e.key === 'ArrowLeft' && previousSlide();
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') previousSlide();
     });
 
+    // handle pagination clicks
     pagList.addEventListener('click', e => {
       if (!e.target.classList.contains('page-num')) return;
-      const { slide } = e.target.dataset;
-      curSlide = +slide;
-      console.log(curSlide);
+      curSlide = +e.target.dataset.slide;
       fullScreen();
       goToSlide(curSlide);
       changePageNum(curSlide);
     });
 
-    slider.addEventListener('touchstart', e => {
-      start = end = 0;
-      start = e.changedTouches[0].screenX;
-    });
+    // handle swipes
+    const handleSwipe = function () {
+      let start, end;
+      slider.addEventListener('touchstart', e => {
+        start = end = 0;
+        start = e.changedTouches[0].screenX;
+      });
 
-    slider.addEventListener('touchend', e => {
-      if (start === 0) return;
-      end = e.changedTouches[0].screenX;
-      calcSwipe(start, end);
-    });
+      slider.addEventListener('touchend', e => {
+        if (start === 0) return;
+        end = e.changedTouches[0].screenX;
+        calcSwipe(start, end);
+      });
+    };
 
     init();
   };
@@ -161,6 +155,7 @@ const loadFunctionality = function () {
     overlay.classList.add('hidden');
   };
 
+  // handle learn more buttons
   learnMoreBtns.forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
@@ -168,6 +163,7 @@ const loadFunctionality = function () {
     });
   });
 
+  // handle close modal icons
   closeIcons.forEach(icon => {
     icon.addEventListener('click', e => {
       e.preventDefault();
@@ -175,6 +171,7 @@ const loadFunctionality = function () {
     });
   });
 
+  // handle click on outside of modal to close
   overlay.addEventListener('click', e => {
     e.preventDefault();
     closeModal();
@@ -186,15 +183,15 @@ const loadData = function () {
   // Insert Data into DOM /////////////////////////
   /////////////////////////////////////////////////
 
-  errorText.textContent = 'Loading content . . .';
-
+  // markup for the projects
   const createSlides = function (projects) {
-    let htmlSlide = '';
-    let htmlModal = '';
+    let markup = '';
     projects.forEach((project, i) => {
-      htmlSlide += `
+      markup += `
       <article
-        class="project project-${project.type} project-${project.className} hidden"
+        class="project project-${project.type} project-${
+        project.className
+      } hidden"
       >
         <div class="project-card-text-box">
           <!-- text -->
@@ -218,45 +215,41 @@ const loadData = function () {
           <div class="img-overlay"></div>
         </div>
       </article>
-    `;
+      <aside class="more-modal modal-${i + 1}">
+        <div class="modal-content">
+          <h2>${project.modalTitle}</h2>
+          <ion-icon
+            name="close-outline"
+            class="close-icon"
+            data-slide="${i + 1}"
+          ></ion-icon>
 
-      htmlModal += `
-    <aside class="more-modal modal-${i + 1}">
-          <div class="modal-content">
-            <h2>${project.modalTitle}</h2>
-            <ion-icon
-              name="close-outline"
-              class="close-icon"
-              data-slide="${i + 1}"
-            ></ion-icon>
+          <h4>Categogry: &nbsp &nbsp ${project.category}<br>
 
-            <h4>Categogry: &nbsp &nbsp ${project.category}<br>
+          Tech used: &nbsp &nbsp ${project.tech}</h4>
 
-            Tech used: &nbsp &nbsp ${project.tech}</h4>
-
-            <p>
-              ${project.modalText}
-            </p>
-            <div class="btn btn-modal btn-${project.className}">
-              <a
-                href="${project.link}"
-                target="_blank"
-                >${project.type === 'Game' ? 'Play' : 'Visit'}</a
-              >
-              </div>
-              <div class="btn btn-modal btn-${project.className}">
-              <a
-              href="${project.gitHub}"
+          <p>
+            ${project.modalText}
+          </p>
+          <div class="btn btn-modal btn-${project.className}">
+            <a
+              href="${project.link}"
               target="_blank"
-              >GitHub</a
-              >
-              </div>
-              </div>
-              </aside>
-              `;
+              >${project.type === 'Game' ? 'Play' : 'Visit'}</a
+            >
+          </div>
+          <div class="btn btn-modal btn-${project.className}">
+            <a
+            href="${project.gitHub}"
+            target="_blank"
+            >GitHub</a
+            >
+          </div>
+        </div>
+      </aside>
+      `;
     });
-    slider.insertAdjacentHTML('beforeend', htmlSlide);
-    slider.insertAdjacentHTML('afterend', htmlModal);
+    slider.insertAdjacentHTML('beforeend', markup);
   };
 
   const errorMessage = function (err) {
@@ -282,6 +275,7 @@ const loadData = function () {
     }
   };
 
+  // load all the images before laoding page
   const loadAllImgs = function (projects) {
     const [...allImgElements] = document.querySelectorAll('.project-img');
     const promises = allImgElements.map(async (el, i) => {

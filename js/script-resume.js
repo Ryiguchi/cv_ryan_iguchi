@@ -1,11 +1,9 @@
 'use strict';
 // SELECTORS
-const h1 = document.querySelector('h1');
-const jobsContainer = document.querySelector('.experience');
+const title = document.querySelector('.resume-title');
 const errorEl = document.querySelector('.error-container');
 const errorText = document.querySelector('.error-text');
 const spinner = document.querySelector('.spinner');
-const containerInner = document.querySelector('.container-inner');
 const main = document.querySelector('main');
 
 //////////////////////////////////////////////////////////
@@ -31,6 +29,7 @@ const loadFunctionality = function () {
     root: null,
     threshold: 0.8,
   });
+
   // --set up reveal effect on newly created elements
   jobSections.forEach(job => {
     !job.classList.contains('wine') && sectionObserver.observe(job);
@@ -49,15 +48,10 @@ const loadFunctionality = function () {
 ////////////////////////////////////////////////////////////
 
 const loadData = function () {
-  errorText.textContent = 'Loading content . . .';
-
   // Build and insert HTML for jobs
-  const appendJobs = function (data) {
-    data.forEach(job => {
-      let res = '';
-      job.responsibilities.forEach(r => (res += `<li>${r}</li>`));
-
-      let html = `
+  const appendJobs = function (jobs) {
+    jobs.forEach(job => {
+      let markup = `
     <section class="${job.className} job job-${job.side} section-job ${
         job.className === 'wine' ? '' : 'hidden-section'
       }">
@@ -68,18 +62,18 @@ const loadData = function () {
       <details>
         <h5 class="resume-h5">Responsibilities and Achievements</h5>
         <ul>
-        ${res}
+        ${job.responsibilities.map(res => `<li>${res}</li>`).join('')}
         </ul>
       </details>
       <div class="print">
         <h5 class="resume-h5">Responsibilities and Achievements</h5>
         <ul>
-          ${res}
+          ${job.responsibilities.map(res => `<li>${res}</li>`).join('')}
         </ul>
       </div>
     </section>
     `;
-      jobsContainer.insertAdjacentHTML('beforeend', html);
+      title.insertAdjacentHTML('afterend', markup);
     });
   };
 
@@ -95,8 +89,8 @@ const loadData = function () {
       const res = await fetch('/cv-javascript/json/work.json');
       if (!res.ok)
         throw new Error('💥 There was a problem fetching the data! 💥');
-      const { jobs: data } = await res.json();
-      appendJobs(data);
+      const { jobs } = await res.json();
+      appendJobs(jobs);
       loadFunctionality();
     } catch (err) {
       errorMessage(err);

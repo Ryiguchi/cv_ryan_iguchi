@@ -15,30 +15,32 @@ const main = document.querySelector('main');
 // PAGE FUNCTIONALITY  ///////////////////////////////////
 //////////////////////////////////////////////////////////
 const loadFunctionality = function () {
-  // SELECTORS /////////////////////////////////
-  const tabsContainerEd = document.querySelector('.tabs-container-ed');
-  const tabsEd = document.querySelectorAll('.tab-ed');
-  const tabsSkill = document.querySelectorAll('.tab-skill');
-  const tabsContentEd = document.querySelectorAll('.tab-content-ed');
-  const tabsContentSkill = document.querySelectorAll('.tab-content-skill');
-
-  // FUNCTIONS /////////////////////////////////
   // TABBED COMPONENT //
   const changeActiveTab = function (clicked, section) {
+    // deselect all tabs
     document.querySelectorAll(`.tab-${section}`).forEach(tab => {
       tab.classList.remove('tab-active');
     });
+    // select clicked tab
     clicked.classList.add('tab-active');
-
+    // deselect all content
     document.querySelectorAll(`.tab-content-${section}`).forEach(tab => {
       tab.classList.add('hidden');
     });
+    // select clicked content
     document
       .querySelector(`.tab-content-${section}-${clicked.dataset.num}`)
       .classList.remove('hidden');
   };
 
+  // jump to section
+  const jumpToSection = function () {
+    const id = e.target.closest('a').getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  };
+
   // Event Handlers /////////////////////////////////
+  // handle tab click
   tabContainers.forEach(el => {
     el.addEventListener('click', e => {
       const clicked = e.target.closest('.tab');
@@ -48,12 +50,10 @@ const loadFunctionality = function () {
     });
   });
 
-  navSection.addEventListener('click', e => {
-    e.preventDefault();
-    const id = e.target.closest('a').getAttribute('href');
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  });
+  // handle jump to section buttons
+  navSection.addEventListener('click', jumpToSection);
 
+  // show page after loading data
   const showPage = function () {
     errorEl.classList.add('hidden');
     main.classList.remove('hidden');
@@ -67,71 +67,69 @@ const loadFunctionality = function () {
 ////////////////////////////////////////////////////////////
 
 const loadData = function () {
-  errorText.textContent = 'Loading content . . .';
-
+  // markup for the education section
   const createHtmlEd = function (schools) {
-    let htmlTab = '';
-    let htmlContent = '';
-    let htmlSubjects1;
-    let htmlSubjects2;
+    let tabsMarkup = '';
+    let contentMarkup = '';
+
     schools.forEach((school, i) => {
-      htmlSubjects1 = '';
-      htmlSubjects2 = '';
-      school.subjects.forEach((sub, i) => {
-        i <= school.subjects.length / 2
-          ? (htmlSubjects1 += `<li>${sub}</li>`)
-          : (htmlSubjects2 += `<li>${sub}</li>`);
-      });
-
-      htmlTab += `
-    <div class="tab tab-ed tab-${i + 1}-ed ${
+      tabsMarkup += `
+        <div class="tab tab-ed tab-${i + 1}-ed ${
         i === 0 ? 'tab-active' : ''
-      }" data-num="${i + 1}">
-    <div class="tab-pointer"></div>
-    <p class="tab-ed-name">${school.name.nameTab}</p>
-    <p class="tab-ed-date">${school.date}</p>
-    </div>
-    `;
-
-      htmlContent += `
-    <div class="tab-content-ed tab-content tab-content-ed-${i + 1} ${
-        i === 0 ? '' : 'hidden'
-      }">
-      <div class="tab-content-header">
-        <div class="tab-content-header-text">
-          <h2>${school.name.nameFull}</h2>
-          <h4>${school.location}</h4>
-          <h4 class="tab-content-date">${school.date}</h4>
-          <p>Major: ${school.major}</p>
+      }" data-num="${i + 1}"
+        >
+          <div class="tab-pointer"></div>
+          <p class="tab-ed-name">${school.name.nameTab}</p>
+          <p class="tab-ed-date">${school.date}</p>
         </div>
-        <img
-          src="${school.img.src}"
-          alt="${school.img.alt}"
-          class="logo-${school.img.class} logo"
-        />
-      </div>
-      <div class="tab-content-description">${school.description}</div>
-      <div class="tab-content-subjects">
-        <h4>Subjects Studied</h4>
-        <ul class="education-ul">
-          ${htmlSubjects1}
-        </ul>
-        <ul>
-          ${htmlSubjects2}
-        </ul>
-      </div>
-    </div>
+      `;
+
+      contentMarkup += `
+        <div class="tab-content-ed tab-content tab-content-ed-${i + 1} ${
+        i === 0 ? '' : 'hidden'
+      }"
+        >
+          <div class="tab-content-header">
+            <div class="tab-content-header-text">
+              <h2>${school.name.nameFull}</h2>
+              <h4>${school.location}</h4>
+              <h4 class="tab-content-date">${school.date}</h4>
+              <p>Major: ${school.major}</p>
+            </div>
+            <img
+              src="${school.img.src}"
+              alt="${school.img.alt}"
+              class="logo-${school.img.class} logo"
+            />
+          </div>
+          <div class="tab-content-description">${school.description}</div>
+          <div class="tab-content-subjects">
+            <h4>Subjects Studied</h4>
+            <ul class="education-ul">
+              ${school.subjects
+                .map((sub, i, subjects) => {
+                  return i == Math.round(subjects.length / 2)
+                    ? `</ul>
+                        <ul>
+                        <li>${sub}</li>`
+                    : `<li>${sub}</li>`;
+                })
+                .join('')}
+            </ul>
+          </div>
+        </div>
     `;
     });
-    certificatesTab.insertAdjacentHTML('beforebegin', htmlTab);
-    tabsContainerOuter.insertAdjacentHTML('afterend', htmlContent);
+    certificatesTab.insertAdjacentHTML('beforebegin', tabsMarkup);
+    tabsContainerOuter.insertAdjacentHTML('afterend', contentMarkup);
   };
 
+  // markup for the certificates
   const createHtmlCer = function (certificates) {
-    let htmlContent = '';
+    let contentMarkup = '';
 
     certificates.forEach(cert => {
-      htmlContent += `
+      contentMarkup += `
         <div class="tab-content-header-text">
           <h4>${cert.courseName}</h4>
           <h4>${cert.hours} hours</h4>
@@ -139,50 +137,51 @@ const loadData = function () {
         </div>
     `;
     });
-    tabContentUdemy.insertAdjacentHTML('beforeend', htmlContent);
+    tabContentUdemy.insertAdjacentHTML('beforeend', contentMarkup);
   };
 
-  const createHtmlSkills = function (cats) {
-    let htmlTabs = '';
-    let htmlContent = '';
-    let htmlSkill;
-    cats.forEach((cat, i) => {
-      htmlSkill = '';
-      // content skills
-      cat.subjects.forEach(sub => {
-        htmlSkill += `
-      <li>
-      <span class="skills-list--skill">${sub.name}</span
-      ><span class="education-print">${sub.print}</span>
-      <div class="skills-list-background">
-      <div class="skills-${sub.name.toLowerCase()} skills-bar"></div>
-      </div>
-      </li>
-      `;
-      });
-
-      htmlContent += `
-    <div class="tab-content tab-content-skill tab-content-skill-${i + 1} ${
+  // markup for the skills section
+  const createHtmlSkills = function (categories) {
+    let tabsMarkups = '';
+    let contentMarkup = '';
+    categories.forEach((cat, i) => {
+      contentMarkup += `
+        <div class="tab-content tab-content-skill tab-content-skill-${i + 1} ${
         i === 0 ? '' : 'hidden'
-      }">
-      <ul class="skills-list education-ul">
-        ${htmlSkill}
-      </ul>
-    </div>
-    `;
+      }"
+        >
+          <ul class="skills-list education-ul">
+            ${cat.subjects
+              .map(
+                sub =>
+                  `
+                  <li>
+                    <span class="skills-list--skill">${sub.name}</span
+                    ><span class="education-print">${sub.print}</span>
+                    <div class="skills-list-background">
+                      <div class="skills-${sub.name.toLowerCase()} skills-bar"></div>
+                    </div>
+                  </li>
+                `
+              )
+              .join('')}
+          </ul>
+        </div>
+      `;
 
       // tabs skills
-      htmlTabs += `
-    <div class="tab tab-skill tab-${i + 1}-ed ${
+      tabsMarkups += `
+        <div class="tab tab-skill tab-${i + 1}-ed ${
         i === 0 ? 'tab-active' : ''
-      }" data-num="${i + 1}">
-      <div class="tab-pointer"></div>
-      <p class="tab-ed-name">${cat.category}</p>
-    </div>
-    `;
+      }" data-num="${i + 1}"
+        >
+          <div class="tab-pointer"></div>
+          <p class="tab-ed-name">${cat.category}</p>
+        </div>
+      `;
     });
-    tabsContainerSkill.insertAdjacentHTML('beforeend', htmlTabs);
-    skillsSection.insertAdjacentHTML('beforeend', htmlContent);
+    tabsContainerSkill.insertAdjacentHTML('beforeend', tabsMarkups);
+    skillsSection.insertAdjacentHTML('beforeend', contentMarkup);
   };
 
   const errorMessage = function (err) {
@@ -195,10 +194,9 @@ const loadData = function () {
       const res = await fetch('/cv-javascript/json/education.json');
       if (!res.ok)
         throw new Error('💥 There was a problem retrieving the data 💥');
-      const [{ education: edu }, { certificates: cert }, { skills }] =
-        await res.json();
-      createHtmlEd(edu);
-      createHtmlCer(cert);
+      const [{ education }, { certificates }, { skills }] = await res.json();
+      createHtmlEd(education);
+      createHtmlCer(certificates);
       createHtmlSkills(skills);
       loadFunctionality();
     } catch (err) {
