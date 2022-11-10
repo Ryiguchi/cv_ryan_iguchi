@@ -72,6 +72,20 @@ const loadData = function () {
     let tabsMarkup = '';
     let contentMarkup = '';
 
+    // create markup for the list of subjects studied
+    const subjectMarkupEd = function (sub, i, subjects) {
+      // after half of list, starts a new list
+      return i === Math.round(subjects.length / 2)
+        ? `
+          </ul>
+          <ul>
+            <li>${sub}</li>
+        `
+        : ` 
+            <li>${sub}</li>
+        `;
+    };
+
     schools.forEach((school, i) => {
       tabsMarkup += `
         <div class="tab tab-ed tab-${i + 1}-ed ${
@@ -106,15 +120,7 @@ const loadData = function () {
           <div class="tab-content-subjects">
             <h4>Subjects Studied</h4>
             <ul class="education-ul">
-              ${school.subjects
-                .map((sub, i, subjects) => {
-                  return i == Math.round(subjects.length / 2)
-                    ? `</ul>
-                        <ul>
-                        <li>${sub}</li>`
-                    : `<li>${sub}</li>`;
-                })
-                .join('')}
+              ${school.subjects.map(subjectMarkupEd).join('')}
             </ul>
           </div>
         </div>
@@ -144,6 +150,20 @@ const loadData = function () {
   const createHtmlSkills = function (categories) {
     let tabsMarkups = '';
     let contentMarkup = '';
+
+    //
+    const subjectMarkupSkills = function (sub) {
+      return `
+        <li>
+          <span class="skills-list--skill">${sub.name}</span
+          ><span class="education-print">${sub.print}</span>
+          <div class="skills-list-background">
+            <div class="skills-${sub.name.toLowerCase()} skills-bar"></div>
+          </div>
+        </li>
+      `;
+    };
+
     categories.forEach((cat, i) => {
       contentMarkup += `
         <div class="tab-content tab-content-skill tab-content-skill-${i + 1} ${
@@ -151,20 +171,7 @@ const loadData = function () {
       }"
         >
           <ul class="skills-list education-ul">
-            ${cat.subjects
-              .map(
-                sub =>
-                  `
-                  <li>
-                    <span class="skills-list--skill">${sub.name}</span
-                    ><span class="education-print">${sub.print}</span>
-                    <div class="skills-list-background">
-                      <div class="skills-${sub.name.toLowerCase()} skills-bar"></div>
-                    </div>
-                  </li>
-                `
-              )
-              .join('')}
+            ${cat.subjects.map(subjectMarkupSkills).join('')}
           </ul>
         </div>
       `;
