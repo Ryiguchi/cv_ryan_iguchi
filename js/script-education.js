@@ -198,7 +198,7 @@ const loadData = function () {
 
   const fetchData = async function () {
     try {
-      const res = await fetch('/cv-js/json/education.json');
+      const res = await fetch('../json/education.json');
       if (!res.ok)
         throw new Error('💥 There was a problem retrieving the data 💥');
       const [{ education }, { certificates }, { skills }] = await res.json();
