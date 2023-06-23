@@ -104,8 +104,8 @@ const loadFunctionality = function () {
     // EVENT LISTENERS
 
     // handle arrow icons
-    rightArrow.addEventListener('click', nextSlide),
-      leftArrow.addEventListener('click', previousSlide);
+    rightArrow.addEventListener('click', nextSlide);
+    leftArrow.addEventListener('click', previousSlide);
 
     // handle arrow keys
     document.addEventListener('keydown', e => {
@@ -136,6 +136,21 @@ const loadFunctionality = function () {
         calcSwipe(start, end);
       });
     };
+
+    // gtag
+    document.querySelectorAll('.gtag-link').forEach(el => {
+      el.addEventListener('click', e => {
+        const eventName = e.target.classList.contains('link-project')
+          ? 'project_link'
+          : 'github_link';
+        const projectName = e.target.id.split('-')[0];
+
+        gtag('event', eventName, {
+          project_name: projectName,
+          // value: 1,
+        });
+      });
+    });
 
     init();
   };
@@ -231,8 +246,10 @@ const loadData = function () {
           <p>
             ${project.modalText}
           </p>
-          <div class="btn btn-modal btn-${project.className}">
+          <div class="btn btn-modal btn-${project.className} ">
             <a
+            class="gtag-link link-project"
+            id="${project.title}-link"
               href="${project.link}"
               target="_blank"
               >${project.type === 'Game' ? 'Play' : 'Visit'}</a
@@ -240,6 +257,8 @@ const loadData = function () {
           </div>
           <div class="btn btn-modal btn-${project.className}">
             <a
+             class="gtag-link link-github"
+            id="${project.title}-github"
             href="${project.gitHub}"
             target="_blank"
             >GitHub</a
