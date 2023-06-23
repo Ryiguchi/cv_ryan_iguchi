@@ -86,7 +86,7 @@ const loadData = function () {
   // Get job data and set observer
   const fetchData = async function () {
     try {
-      const res = await fetch('/CV-JS/json/work.json');
+      const res = await fetch('/cv-js/json/work.json');
       if (!res.ok)
         throw new Error('💥 There was a problem fetching the data! 💥');
       const { jobs } = await res.json();
